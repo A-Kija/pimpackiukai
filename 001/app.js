@@ -162,4 +162,13 @@ kvartalas.forEach(namas => {
 
 
 
-console.table('name T Z:', nameYraZitu, kvartaleYraZitu);
+// console.table('name T Z:', nameYraZitu, kvartaleYraZitu);
+
+
+
+const a3 = [2, 4, 5];
+
+const a3C = a3.map(skaicius => skaicius * 2)
+
+
+console.log(a3, a3C);
