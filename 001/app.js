@@ -168,7 +168,9 @@ kvartalas.forEach(namas => {
 
 const a3 = [2, 4, 5];
 
-const a3C = a3.map(skaicius => skaicius * 2)
+const a3C = a3.map(skaicius => {
+    return skaicius * 2
+});
 
 
 console.log(a3, a3C);
