@@ -101,3 +101,24 @@ for (let i = 0; i < 5; i++) {
 }
 
 console.table(namas5);
+
+
+const pinigai = [158, 147, 8874, 147, 6547];
+
+
+let pinigine = 0;
+
+pinigai.forEach(pinigas => pinigine = pinigine + pinigas);
+
+console.log(pinigine);
+
+let bendrai = 0;
+
+namas5.forEach(aukstas => {
+
+    aukstas.forEach(saskaita => bendrai = bendrai + saskaita);
+
+});
+
+
+console.log(bendrai);
