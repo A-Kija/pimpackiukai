@@ -129,4 +129,37 @@ for (let i = 0; i < 20; i++) {
     namas20.push(namas[rand(0, namas.length - 1)]);
 }
 
-console.table(namas20);
+
+const kvartalas = [];
+for (let k = 0; k < 5; k++) {
+
+    const namas20 = [];
+    for (let i = 0; i < 20; i++) {
+        namas20.push(namas[rand(0, namas.length - 1)]);
+    }
+
+    kvartalas.push(namas20);
+}
+
+let nameYraZitu = 0;
+namas20.forEach(gyv => {
+    if (gyv == 'Teta Zita') {
+        nameYraZitu++;
+    }
+});
+
+
+let kvartaleYraZitu = 0;
+kvartalas.forEach(namas => {
+
+    namas.forEach(gyv => {
+        if (gyv == 'Teta Zita') {
+            kvartaleYraZitu++;
+        }
+    });
+
+});
+
+
+
+console.table('name T Z:', nameYraZitu, kvartaleYraZitu);
