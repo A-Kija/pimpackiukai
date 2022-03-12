@@ -14,9 +14,43 @@ for (let i = 0; i < 3; i++) {
 }
 
 
-for (let i = 0; i < 103; i++) {
+for (let i = 0; i < 3; i++) {
 
     const random = rand(1, 6);
     console.log(i, random);
 
 }
+
+const arr1 = [];
+
+for (let i = 0; i < 3; i++) {
+
+    const random = rand(1, 6);
+    arr1.push(random); // elementai deliojami is eiles
+    // arr1[i] = random; // elementai deliojami pasirinktinai
+
+}
+
+
+
+console.table(arr1);
+
+
+const namas = ['Vytas', 'Lina', 'Bebras', 'Žirafas', 'Nausėda', 'Teta Zita'];
+
+namas.push('Žirafas');
+namas.unshift('Nauseda')
+
+namas.pop();
+namas.shift();
+
+console.table(namas[1]);
+
+
+for (let i = 0; i < namas.length; i++) {
+    console.log(namas[i]);
+}
+
+console.log('---------------------------------------')
+
+namas.forEach(g => console.log(g));
