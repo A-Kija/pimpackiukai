@@ -172,5 +172,13 @@ const a3C = a3.map(skaicius => {
     return skaicius * 2
 });
 
+const altNamas20 = namas20.map(gyv => {
+    if (gyv == 'Nausėda') {
+        return 'Barsukas';
+    }
+    return gyv;
+})
 
-console.log(a3, a3C);
+
+console.table(namas20);
+console.table(altNamas20);
