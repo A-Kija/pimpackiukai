@@ -54,3 +54,50 @@ for (let i = 0; i < namas.length; i++) {
 console.log('---------------------------------------')
 
 namas.forEach(g => console.log(g));
+
+// namas.forEach();
+
+namas.forEach(function(namoGyventojai) {
+    console.log(namoGyventojai);
+});
+
+namas.forEach((namoGyventojai) => {
+    console.log(namoGyventojai);
+});
+
+
+namas.forEach(namoGyventojai => {
+    console.log(namoGyventojai);
+});
+
+namas.forEach(namoGyventojai => console.log(namoGyventojai));
+
+
+const namas2 = [
+    ['Vytas', 'Simas'],
+    ['Lina', 'Sima'],
+    ['Bebras', 'Songaila']
+];
+
+console.table(namas2);
+console.log('---->', namas2[2][1]);
+
+
+
+
+
+
+
+const namas5 = [];
+for (let i = 0; i < 5; i++) {
+
+    const aukstas = [];
+    for (let k = 0; k < 3; k++) {
+        const random = rand(10, 99);
+        aukstas.push(random);
+    }
+
+    namas5.push(aukstas);
+}
+
+console.table(namas5);
