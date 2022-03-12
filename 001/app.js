@@ -112,13 +112,21 @@ pinigai.forEach(pinigas => pinigine = pinigine + pinigas);
 
 console.log(pinigine);
 
+
+
 let bendrai = 0;
-
 namas5.forEach(aukstas => {
-
     aukstas.forEach(saskaita => bendrai = bendrai + saskaita);
-
 });
-
-
 console.log(bendrai);
+
+
+console.log(namas[rand(0, namas.length - 1)]);
+
+
+const namas20 = [];
+for (let i = 0; i < 20; i++) {
+    namas20.push(namas[rand(0, namas.length - 1)]);
+}
+
+console.table(namas20);
