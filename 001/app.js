@@ -180,5 +180,23 @@ const altNamas20 = namas20.map(gyv => {
 })
 
 
-console.table(namas20);
-console.table(altNamas20);
+// console.table(namas20);
+// console.table(altNamas20);
+
+// trinti
+
+const namasGriovimui = ['Nausėda', 'Nausėda', 'Nausėda', 'Vytas', 'Lina', 'Bebras', 'Žirafas', 'Nausėda', 'Teta Zita'];
+
+// Trinti vieną
+const kurGyvena = namasGriovimui.indexOf('Nausėda');
+namasGriovimui.splice(kurGyvena, 1);
+
+
+// Trinti visus
+
+let kurGyvena2;
+while ((kurGyvena2 = namasGriovimui.indexOf('Nausėda')) != -1) {
+    namasGriovimui.splice(kurGyvena2, 1);
+}
+
+console.table(namasGriovimui);
