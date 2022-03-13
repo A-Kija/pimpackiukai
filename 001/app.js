@@ -185,18 +185,33 @@ const altNamas20 = namas20.map(gyv => {
 
 // trinti
 
-const namasGriovimui = ['Nausėda', 'Nausėda', 'Nausėda', 'Vytas', 'Lina', 'Bebras', 'Žirafas', 'Nausėda', 'Teta Zita'];
+const namasGriovimui = ['Nausėda1', 'Nausėda1', 'Nausėda1', 'Vytas', 'Lina', 'Bebras', 'Žirafas', 'Nausėda1', 'Teta Zita'];
 
 // Trinti vieną
-const kurGyvena = namasGriovimui.indexOf('Nausėda');
-namasGriovimui.splice(kurGyvena, 1);
+const kurGyvena = namasGriovimui.indexOf('Nausėda22');
 
+// delete namasGriovimui[kurGyvena]; padaro tuscia
+
+// if (kurGyvena > 0) {
+//     namasGriovimui.splice(kurGyvena, 1); // istrina pati elementa
+// }
 
 // Trinti visus
-
 let kurGyvena2;
-while ((kurGyvena2 = namasGriovimui.indexOf('Nausėda')) != -1) {
+while ((kurGyvena2 = namasGriovimui.indexOf('Nausėda1')) != -1) {
     namasGriovimui.splice(kurGyvena2, 1);
 }
 
-console.table(namasGriovimui);
+
+// while (namasGriovimui.indexOf('Nausėda1') != -1) {
+//     let kurGyvena2 = namasGriovimui.indexOf('Nausėda1');
+//     namasGriovimui.splice(kurGyvena2, 1);
+// }
+
+// istustina viska
+// do {
+//     kurGyvena2 = namasGriovimui.indexOf('Nausėda1');
+//     delete namasGriovimui[kurGyvena2];
+// } while (kurGyvena2 != -1);
+
+console.log(namasGriovimui);
