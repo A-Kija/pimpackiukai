@@ -30,9 +30,22 @@ console.table(try10);
 
 // const red = { name: 'Berbras', vazonas: 1 };
 
-// const pink = red;
+// const pink = red; // by reference
 
 // red.name = 'Teta Zita';
 
 // console.table('RED:', red);
 // console.table('PINK:', pink);
+
+const neo = {};
+neo.number = rand(100, 999);
+neo.pill = rand(0, 1) ? 'Blue' : 'Red';
+neo.luckyNumbers = [];
+
+for (let i = 0; i < 100; i++) {
+    neo.luckyNumbers.push(rand(100, 999));
+}
+
+neo.pill = neo.luckyNumbers.indexOf(neo.number) == -1 ? 'Blue' : 'Red';
+
+console.log(neo);
