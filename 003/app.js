@@ -64,3 +64,35 @@ add.addEventListener('click', () => {
     }
     console.log(sausageMap);
 });
+
+
+const set1 = new Set();
+const arr1 = [];
+
+set1.add('cat');
+// arr1.push('cat');
+set1.add('dog');
+// arr1.push('dog');
+set1.add('dingo');
+// arr1.push('cat');
+
+// set1.delete('cat');
+
+// console.log(set1.has('cat'));
+
+set1.forEach(value => console.log(value));
+
+
+// console.log(set1);
+// console.log(arr1);
+
+
+setA = new Set(['red', 'blue', 'green', 'black', 'yellow']);
+setB = new Set(['pink', 'red', 'green', 'black']);
+
+const intersection = new Set([...setA].filter(x => setB.has(x)));
+
+const difference = new Set([...setB].filter(x => !setA.has(x)));
+
+console.log(intersection);
+console.log(difference);
