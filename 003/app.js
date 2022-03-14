@@ -46,4 +46,21 @@ console.log(map1.get('asjdkjasfjdsaj'));
 map1.forEach((value, key) => console.log(key, '->', value));
 
 
-console.log(map1);
+// console.log(map1);
+
+const inputName = document.querySelector('#i3a');
+const inputSausage = document.querySelector('#i3b');
+const add = document.querySelector('#b3');
+
+const sausageMap = new Map();
+
+
+add.addEventListener('click', () => {
+    if (sausageMap.has(inputName.value)) {
+        const sausageNow = sausageMap.get(inputName.value) + parseInt(inputSausage.value);
+        sausageMap.set(inputName.value, sausageNow);
+    } else {
+        sausageMap.set(inputName.value, parseInt(inputSausage.value));
+    }
+    console.log(sausageMap);
+});
