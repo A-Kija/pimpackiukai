@@ -87,12 +87,23 @@ set1.forEach(value => console.log(value));
 // console.log(arr1);
 
 
-setA = new Set(['red', 'blue', 'green', 'black', 'yellow']);
-setB = new Set(['pink', 'red', 'green', 'black']);
+const setA = new Set(['red', 'blue', 'green', 'black', 'yellow']);
+// setB = new Set(['pink', 'red', 'green', 'black']);
 
-const intersection = new Set([...setA].filter(x => setB.has(x)));
+// const intersection = new Set([...setA].filter(x => setB.has(x)));
 
-const difference = new Set([...setB].filter(x => !setA.has(x)));
+// const difference = new Set([...setB].filter(x => !setA.has(x)));
 
-console.log(intersection);
-console.log(difference);
+// console.log(intersection);
+// console.log(difference);
+
+const ar2 = ['red', 'blue', 'green', 'black', 'yellow'];
+ar2.sort();
+setA.clear();
+ar2.forEach(e => setA.add(e));
+
+
+
+
+
+console.log(setA);
