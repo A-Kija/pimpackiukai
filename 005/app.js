@@ -37,8 +37,15 @@ const b = document.querySelector('button');
 //     h1.dataset.numberCounter = numb; // duomenys
 // })
 
-let numb = 0;
+
+let numb = localStorage.getItem('counter');
+if (null === numb) {
+    numb = 0;
+    localStorage.setItem('counter', 0);
+}
+h1.innerText = numb;
 b.addEventListener('click', () => {
     numb++;
     h1.innerText = numb;
+    localStorage.setItem('counter', numb);
 });
