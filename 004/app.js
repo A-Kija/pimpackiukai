@@ -40,12 +40,16 @@ const ul = document.querySelector('ul');
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(data => {
+        // data.forEach(element => {
+        //     const li = document.createElement('li');
+        //     const text = document.createTextNode(element.username + ' -- ' + element.company.name);
+        //     li.appendChild(text);
+        //     ul.appendChild(li);
+        // });
+        let html = '';
         data.forEach(element => {
-            const li = document.createElement('li');
-            const text = document.createTextNode(element.username);
-            li.appendChild(text);
-            ul.appendChild(li);
+            html += `<li>${element.username} ** <h4 class="blabla">${element.company.name}</h4></li>`;
         });
-
-        console.log(data)
+        ul.innerHTML = html; // gali buti pakankamai ilga procesinimui
+        console.log(data);
     });
