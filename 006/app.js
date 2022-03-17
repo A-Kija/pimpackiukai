@@ -21,7 +21,7 @@ createButton.addEventListener('click', () => {
 
     storage.create(bandele);
     Bandele.render();
-})
+});
 
 
 class localDB {
@@ -94,6 +94,13 @@ class Bandele {
             const i = document.createElement('i');
             i.appendChild(document.createTextNode(types[b.type - 1]));
 
+            const e = document.createElement('button');
+            e.addEventListener('click', () => {
+
+            })
+            e.appendChild(document.createTextNode('redaguoti'));
+
+
             const d = document.createElement('button');
             d.addEventListener('click', () => {
                 storage.delete(b.id);
@@ -104,6 +111,7 @@ class Bandele {
             div.appendChild(h3);
             div.appendChild(span);
             div.appendChild(i);
+            div.appendChild(e);
             div.appendChild(d);
 
             list.appendChild(div);
