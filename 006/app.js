@@ -43,6 +43,15 @@ class localDB {
         this.write();
     }
 
+    delete(id) {
+        this.data.forEach((b, i) => {
+            if (b.id == id) {
+                this.data.splice(i, 1);
+            }
+        });
+        this.write();
+    }
+
 
     write() {
         localStorage.setItem(this.key, JSON.stringify(this.data));
@@ -85,9 +94,17 @@ class Bandele {
             const i = document.createElement('i');
             i.appendChild(document.createTextNode(types[b.type - 1]));
 
+            const d = document.createElement('button');
+            d.addEventListener('click', () => {
+                storage.delete(b.id);
+                this.render();
+            })
+            d.appendChild(document.createTextNode('trinti'));
+
             div.appendChild(h3);
             div.appendChild(span);
             div.appendChild(i);
+            div.appendChild(d);
 
             list.appendChild(div);
 
