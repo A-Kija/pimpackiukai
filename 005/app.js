@@ -42,10 +42,12 @@ let numb = localStorage.getItem('counter');
 if (null === numb) {
     numb = 0;
     localStorage.setItem('counter', 0);
+} else {
+    numb = JSON.parse(numb);
 }
 h1.innerText = numb;
 b.addEventListener('click', () => {
-    numb++;
+    numb = numb + 1;
     h1.innerText = numb;
-    localStorage.setItem('counter', numb);
+    localStorage.setItem('counter', JSON.stringify(numb));
 });
