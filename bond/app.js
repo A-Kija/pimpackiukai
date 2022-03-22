@@ -65,9 +65,6 @@ app.get('/trees', (req, res) => {
     let sql
 
 
-    // UPDATE table_name
-    // SET column1 = value1, column2 = value2, ...
-    // WHERE condition;
 
     sql = `
         UPDATE trees
@@ -77,15 +74,7 @@ app.get('/trees', (req, res) => {
 
     con.query(sql);
 
-    // DELETE FROM table_name WHERE condition;
 
-    sql = `
-    DELETE
-    FROM trees
-    WHERE title = 'Agrastas'
-    `;
-
-    con.query(sql);
 
     // SELECT column1, column2, ...
     // FROM table_name;
@@ -102,25 +91,51 @@ app.get('/trees', (req, res) => {
 });
 
 app.post('/trees', (req, res) => {
-
-    let sql
-
-    console.log(req.body);
-
     // INSERT INTO table_name (column1, column2, column3, ...)
     // VALUES (value1, value2, value3, ...);
-
-    sql = `
+    const sql = `
         INSERT INTO trees
         (title, height, type)
-        VALUES ('${req.body.title}', ${req.body.height}, ${req.body.type})
+        VALUES (?, ?, ?)
     `;
-
-    con.query(sql);
-
-    res.json({ message: 'OK' });
+    con.query(sql, [req.body.title, req.body.height, req.body.type], function(err, result) {
+        console.log(result, err);
+        res.json({ message: 'OK' });
+    });
 
 });
+
+
+
+app.delete('/trees/:id', (req, res) => {
+    // DELETE FROM table_name WHERE condition;
+    const sql = `
+    DELETE
+    FROM trees
+    WHERE id = ${req.params.id}
+    `;
+    con.query(sql);
+    res.json({ message: 'OK' });
+});
+
+
+app.put('/trees/:id', (req, res) => {
+    // UPDATE table_name
+    // SET column1 = value1, column2 = value2, ...
+    // WHERE condition;
+    const sql = `
+    UPDATE trees
+    SET title = ?, height = ?, type = ?
+    WHERE id = ?
+    `;
+    con.query(sql, [req.body.title, req.body.height, req.body.type, req.params.id], function(err, result) {
+        console.log(result, err);
+        res.json({ message: 'OK' });
+    });
+});
+
+
+
 
 
 
