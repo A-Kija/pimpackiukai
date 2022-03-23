@@ -1,6 +1,5 @@
 'use strict'
 
-
 const get = () => {
     fetch('http://localhost:3000/trees')
         .then(response => response.json())

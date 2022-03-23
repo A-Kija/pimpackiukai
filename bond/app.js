@@ -51,8 +51,6 @@ const con = mysql.createConnection({
     database: 'james_bond',
 });
 
-
-
 app.get('/', (req, res) => {
     res.send('Hello World!')
 })
@@ -62,24 +60,9 @@ app.get('/zuikis/:zuikioNr', (req, res) => {
 })
 
 app.get('/trees', (req, res) => {
-    let sql
-
-
-
-    sql = `
-        UPDATE trees
-        SET type = 1, height = 22.22
-        WHERE title = 'Agrastas'
-    `;
-
-    con.query(sql);
-
-
-
     // SELECT column1, column2, ...
     // FROM table_name;
-
-    sql = `
+    const sql = `
         SELECT
         *
         FROM trees
@@ -102,10 +85,7 @@ app.post('/trees', (req, res) => {
         console.log(result, err);
         res.json({ message: 'OK' });
     });
-
 });
-
-
 
 app.delete('/trees/:id', (req, res) => {
     // DELETE FROM table_name WHERE condition;
@@ -117,7 +97,6 @@ app.delete('/trees/:id', (req, res) => {
     con.query(sql);
     res.json({ message: 'OK' });
 });
-
 
 app.put('/trees/:id', (req, res) => {
     // UPDATE table_name
@@ -133,11 +112,6 @@ app.put('/trees/:id', (req, res) => {
         res.json({ message: 'OK' });
     });
 });
-
-
-
-
-
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
