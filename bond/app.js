@@ -113,6 +113,52 @@ app.put('/trees/:id', (req, res) => {
     });
 });
 
+// GRYBU KARAS
+
+app.post('/war', (req, res) => {
+    const sql = `
+        INSERT INTO geybu_karas
+        (title, power, type)
+        VALUES (?, ?, ?)
+    `;
+    con.query(sql, [req.body.title, req.body.power, req.body.type], function(err, result) {
+        console.log(result, err);
+        res.json({ message: 'OK' });
+    });
+});
+
+
+
+
+
+app.get('/war', (req, res) => {
+    if (req.query.type != 0) {
+        const sql = `
+        SELECT
+        *
+        FROM geybu_karas
+        WHERE type = ?
+    `;
+        con.query(sql, [req.query.type], function(err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
+    } else {
+
+        const sql = `
+        SELECT
+        *
+        FROM geybu_karas
+    `;
+        con.query(sql, function(err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
+    }
+});
+
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
