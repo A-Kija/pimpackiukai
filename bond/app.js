@@ -149,8 +149,9 @@ app.get('/war', (req, res) => {
         SELECT
         *
         FROM geybu_karas
+        WHERE power >= ? AND power <= ?
     `;
-        con.query(sql, function(err, result) {
+        con.query(sql, [req.query.minPower, req.query.maxPower], function(err, result) {
             if (err) throw err;
             res.json(result);
         });

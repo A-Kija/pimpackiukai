@@ -55,7 +55,12 @@ document.querySelector('#create').addEventListener('click', () => {
 // READ
 const get = () => {
     const type = document.querySelector('#filter').value;
-    const s = slider.noUiSlider.get();
+    // const s = slider.noUiSlider.get();
+    s = [
+        document.querySelector('#min').value,
+        document.querySelector('#max').value
+    ]
+
     fetch('http://localhost:3000/war?type=' + type + '&minPower=' + s[0] + '&maxPower=' + s[1])
         .then(response => response.json())
         .then(data => {
@@ -79,18 +84,23 @@ document.querySelector('#filter')
     })
 
 
-const slider = document.querySelector('#slider');
-noUiSlider.create(slider, {
-    start: [0, 999],
-    connect: true,
-    range: {
-        'min': 0,
-        'max': 999
-    }
-});
+// const slider = document.querySelector('#slider');
+// noUiSlider.create(slider, {
+//     start: [0, 999],
+//     connect: true,
+//     range: {
+//         'min': 0,
+//         'max': 999
+//     }
+// });
 
-slider.noUiSlider.on('change', () => {
-    get();
-});
+// slider.noUiSlider.on('change', () => {
+//     get();
+// });
+
+document.querySelectorAll('[type=range]').forEach(r => {
+    r.addEventListener('change', () => get())
+})
+
 
 get();
