@@ -55,7 +55,8 @@ document.querySelector('#create').addEventListener('click', () => {
 // READ
 const get = () => {
     const type = document.querySelector('#filter').value;
-    fetch('http://localhost:3000/war?type=' + type + '&power=20')
+    const s = slider.noUiSlider.get();
+    fetch('http://localhost:3000/war?type=' + type + '&minPower=' + s[0] + '&maxPower=' + s[1])
         .then(response => response.json())
         .then(data => {
             let html = ''
@@ -76,5 +77,20 @@ document.querySelector('#filter')
     .addEventListener('change', () => {
         get();
     })
+
+
+const slider = document.querySelector('#slider');
+noUiSlider.create(slider, {
+    start: [0, 999],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 999
+    }
+});
+
+slider.noUiSlider.on('change', () => {
+    get();
+});
 
 get();

@@ -137,9 +137,9 @@ app.get('/war', (req, res) => {
         SELECT
         *
         FROM geybu_karas
-        WHERE type = ?
+        WHERE type = ? AND power >= ? AND power <= ?
     `;
-        con.query(sql, [req.query.type], function(err, result) {
+        con.query(sql, [req.query.type, req.query.minPower, req.query.maxPower], function(err, result) {
             if (err) throw err;
             res.json(result);
         });
