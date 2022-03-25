@@ -138,6 +138,7 @@ app.get('/war', (req, res) => {
         *
         FROM geybu_karas
         WHERE type = ? AND power >= ? AND power <= ?
+        ORDER BY power ${req.query.sort == 'desc' ? 'DESC' : 'ASC'}
     `;
         con.query(sql, [req.query.type, req.query.minPower, req.query.maxPower], function(err, result) {
             if (err) throw err;
@@ -150,6 +151,7 @@ app.get('/war', (req, res) => {
         *
         FROM geybu_karas
         WHERE power >= ? AND power <= ?
+        ORDER BY power ${req.query.sort == 'desc' ? 'DESC' : 'ASC'}
     `;
         con.query(sql, [req.query.minPower, req.query.maxPower], function(err, result) {
             if (err) throw err;

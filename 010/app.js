@@ -53,7 +53,7 @@ document.querySelector('#create').addEventListener('click', () => {
 });
 
 // READ
-const get = () => {
+const get = (sort = 'asc') => {
     const type = document.querySelector('#filter').value;
     // const s = slider.noUiSlider.get();
     s = [
@@ -61,7 +61,7 @@ const get = () => {
         document.querySelector('#max').value
     ]
 
-    fetch('http://localhost:3000/war?type=' + type + '&minPower=' + s[0] + '&maxPower=' + s[1])
+    fetch('http://localhost:3000/war?type=' + type + '&minPower=' + s[0] + '&maxPower=' + s[1] + '&sort=' + sort)
         .then(response => response.json())
         .then(data => {
             let html = ''
@@ -100,6 +100,10 @@ document.querySelector('#filter')
 
 document.querySelectorAll('[type=range]').forEach(r => {
     r.addEventListener('change', () => get())
+})
+
+document.querySelectorAll('[type=radio]').forEach(r => {
+    r.addEventListener('change', e => get(e.target.value))
 })
 
 
