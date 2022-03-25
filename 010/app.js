@@ -107,4 +107,37 @@ document.querySelectorAll('[type=radio]').forEach(r => {
 })
 
 
+// JOIN
+const getJoinInner = () => {
+    fetch('http://localhost:3000/join/inner')
+        .then(response => response.json())
+        .then(data => {
+            console.table(data)
+        });
+}
+
+const getJoinLeft = () => {
+    fetch('http://localhost:3000/join/left')
+        .then(response => response.json())
+        .then(data => {
+            console.table(data)
+        });
+}
+
+const getJoinRight = () => {
+    fetch('http://localhost:3000/join/right')
+        .then(response => response.json())
+        .then(data => {
+            console.table(data)
+        });
+}
+
+document.querySelector('#join-inner')
+    .addEventListener('click', () => getJoinInner());
+document.querySelector('#join-left')
+    .addEventListener('click', () => getJoinLeft());
+document.querySelector('#join-right')
+    .addEventListener('click', () => getJoinRight());
+
+
 get();

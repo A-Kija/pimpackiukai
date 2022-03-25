@@ -161,6 +161,62 @@ app.get('/war', (req, res) => {
 });
 
 
+app.get('/join/inner', (req, res) => {
+    // SELECT column_name(s)
+    // FROM table1
+    // INNER JOIN table2
+    // ON table1.column_name = table2.column_name;
+    const sql = `
+        SELECT 
+        color, k.type AS grybo_tipas, c.type AS spalvos_tipas
+        FROM geybu_karas AS k
+        INNER JOIN colors AS c
+        ON k.id = c.grybas_id
+    `;
+    con.query(sql, function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
+app.get('/join/left', (req, res) => {
+    // SELECT column_name(s)
+    // FROM table1
+    // LEFT JOIN table2
+    // ON table1.column_name = table2.column_name;
+    const sql = `
+        SELECT 
+        *
+        FROM geybu_karas
+        LEFT JOIN colors
+        ON geybu_karas.id = colors.grybas_id
+    `;
+    con.query(sql, function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
+
+app.get('/join/right', (req, res) => {
+    // SELECT column_name(s)
+    // FROM table1
+    // RIGHT JOIN table2
+    // ON table1.column_name = table2.column_name;
+    const sql = `
+        SELECT 
+        *
+        FROM geybu_karas
+        RIGHT JOIN colors
+        ON geybu_karas.id = colors.grybas_id
+    `;
+    con.query(sql, function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
