@@ -1,13 +1,11 @@
 import './App.css';
-import Labas from './Components/Labas';
+import PonasPropsas from './Components/PonasPropsas';
 
 function App() {
   return (
     <div className="App">
-      <Labas/>
-      <Labas/>
-      <span>Bla bla bla</span>
-      <Labas></Labas>
+        <PonasPropsas color="pink" size="20px"></PonasPropsas>
+        <PonasPropsas color="blue" size="35px"></PonasPropsas>
     </div>
   );
 }
