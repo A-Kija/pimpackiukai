@@ -1,6 +1,6 @@
 function Animal(props) {
     return (
-        <i>{props.animal}</i>
+        <i style={{color: props.color}}>{props.animal}</i>
     )
 }
 

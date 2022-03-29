@@ -8,7 +8,7 @@ function Africa(props) {
                 color: props.color
             }
         }>{props.text.o}</h3>
-        <Animal animal={props.animal}></Animal>
+        <Animal animal={props.animal} color="red"></Animal>
         </>
     )
 }
