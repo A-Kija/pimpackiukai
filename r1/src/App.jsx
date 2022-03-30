@@ -1,20 +1,19 @@
 import './App.css';
-import Africa from './Components/Africa';
-import Animal from './Components/Animal';
-import Auto from './Components/Auto';
-import PonasPropsas from './Components/PonasPropsas';
+
+const mas = [
+    <div key="a">A</div>,
+    <div key="bla">B</div>,
+    <div key="2222">C</div>
+];
+
+const mas3 = ['Pilkis', 'Murka', 'Mulkis'];
 
 function App() {
   return (
     <div className="App">
-        <PonasPropsas color="pink" size="20px"></PonasPropsas>
-        <PonasPropsas color="blue" size="35px"></PonasPropsas>
-        <Africa animal="krokodilas" color="yellow" text={{o:'bannana'}}></Africa>
-        <Africa animal="žirafa" color="green" text={{o:'palm'}}></Africa>
-        <Animal animal="makaka"></Animal>
-        <Auto maker="Volovo"></Auto>
-        <Auto maker="Opel"></Auto>
-        <Auto maker="Kamaz"></Auto>
+        {
+            mas3.map((k, i) => <h2 key={i}>{k}</h2>)
+        }
     </div>
   );
 }
