@@ -13,15 +13,15 @@ class Kvadratukai extends Component {
         this.setState({kv: kvCopy});
     }
 
-
     render() {
         return(
         <>
             <button onClick={this.add}>ADD kvadratukas</button>
+            <div className="kvc">
             {
                 this.state.kv.map((k, i) => <div key={i} className="kv"></div>)
             }
-            
+            </div>
         </>
         )
     }

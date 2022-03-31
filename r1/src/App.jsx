@@ -17,8 +17,8 @@ function App() {
             // mas3.map((k, i) => <h2 key={i}>{k}</h2>)
         }
         {/* <State c="green" hello="Sveikutė, Silkutė"></State> */}
+        
         <Kvadratukai></Kvadratukai>
-
     </div>
   );
 }
