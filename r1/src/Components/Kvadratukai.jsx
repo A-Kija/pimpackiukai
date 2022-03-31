@@ -1,5 +1,6 @@
 import { Component } from "react";
-import rand from '../Functions/rand'
+import rand from '../Functions/rand';
+import colors from '../Constants/colors';
 
 class Kvadratukai extends Component {
 
@@ -10,13 +11,18 @@ class Kvadratukai extends Component {
 
     add = () => {
         const kvCopy = [...this.state.kv];// todel kad negalim keist tiesiogiai
-        kvCopy.push(rand(10, 20));
+        kvCopy.push(
+            {
+                digit: rand(10, 20),
+                color: rand(1, 3)
+            }
+            );
         this.setState({kv: kvCopy});
     }
 
     sort = () => {
         const kvCopy = [...this.state.kv];// todel kad negalim keist tiesiogiai
-        kvCopy.sort((a, b) => a - b);
+        kvCopy.sort((a, b) => b.digit - a.digit);
         this.setState({kv: kvCopy});
     }
 
@@ -27,7 +33,7 @@ class Kvadratukai extends Component {
             <button onClick={this.sort}>Pasirūšiuokim</button>
             <div className="kvc">
             {
-                this.state.kv.map((k, i) => <div key={i} className="kv">{k}</div>)
+                this.state.kv.map((k, i) => <div key={i} className={'kv kv_' + k.color}>{k.digit}</div>)
             }
             </div>
         </>

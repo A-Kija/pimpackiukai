@@ -53,8 +53,19 @@ span {
     height: 50px;
     border-radius: 5px;
     margin: 5px;
-    background-color: crimson;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.kv_1 {
+    background-color: crimson;
+}
+
+.kv_2 {
+    background-color: cornflowerblue;
+}
+
+.kv_3 {
+    background-color: darkgoldenrod;
 }
