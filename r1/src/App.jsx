@@ -1,4 +1,5 @@
 import './App.css';
+import Kvadratukai from './Components/Kvadratukai';
 import State from './Components/State';
 
 const mas = [
@@ -13,9 +14,11 @@ function App() {
   return (
     <div className="App">
         {
-            mas3.map((k, i) => <h2 key={i}>{k}</h2>)
+            // mas3.map((k, i) => <h2 key={i}>{k}</h2>)
         }
-        <State hello="Sveikutė, Silkutė"></State>
+        {/* <State c="green" hello="Sveikutė, Silkutė"></State> */}
+        <Kvadratukai></Kvadratukai>
+
     </div>
   );
 }

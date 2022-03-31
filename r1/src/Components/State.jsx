@@ -1,11 +1,12 @@
 import { Component } from "react";
+import Maker from "./Maker";
 
 class State extends Component {
 
-    constructor(props) {
-        super();
+    constructor(props) { // komponento paruosimas
+        super(); //paleidzia Component constructor()
         // this.ku = this.ku.bind(this);
-        this.state = {color: 'red'};
+        this.state = {color: 'blue'};
     }
 
     ku = () => {
@@ -15,7 +16,6 @@ class State extends Component {
         } else {
             this.setState( {color: 'blue'} );
         }
-
         // setTimeout(() => console.log(this.state.color), 1);
     }
 
@@ -24,6 +24,7 @@ class State extends Component {
             <>
             <div style={{color:this.state.color}}>{this.props.hello}</div>
             <button onClick={this.ku}>KŪ</button>
+            <Maker maker="opel"></Maker>
             </>
         )
     }
