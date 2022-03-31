@@ -1,4 +1,5 @@
 import { Component } from "react";
+import rand from '../Functions/rand'
 
 class Kvadratukai extends Component {
 
@@ -8,8 +9,8 @@ class Kvadratukai extends Component {
     }
 
     add = () => {
-        const kvCopy = [...this.state.kv];
-        kvCopy.push(1);
+        const kvCopy = [...this.state.kv];// todel kad negalim keist tiesiogiai
+        kvCopy.push(rand(10, 20));
         this.setState({kv: kvCopy});
     }
 
@@ -19,7 +20,7 @@ class Kvadratukai extends Component {
             <button onClick={this.add}>ADD kvadratukas</button>
             <div className="kvc">
             {
-                this.state.kv.map((k, i) => <div key={i} className="kv"></div>)
+                this.state.kv.map((k, i) => <div key={i} className="kv">{k}</div>)
             }
             </div>
         </>

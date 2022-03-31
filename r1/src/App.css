@@ -54,4 +54,7 @@ span {
     border-radius: 5px;
     margin: 5px;
     background-color: crimson;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
