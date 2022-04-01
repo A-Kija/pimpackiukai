@@ -3,6 +3,7 @@ function Kablys({color}) {
 
     const [nr, setNr] = useState(11);
     const [fs, setFs] = useState(20);
+    const [kv, setKv] = useState([]);
 
 
     const changeNr = () => {
@@ -18,6 +19,10 @@ function Kablys({color}) {
         setFs(oldFs => oldFs == 20 ? 40 : 20);
     }
 
+    const addKv = () => {
+        setKv(items => [...items, '2']);
+    }
+
     return (
         <>
         <div style={{
@@ -27,6 +32,12 @@ function Kablys({color}) {
             }}>Aš Kablys Nr. {nr} </div>
         <button onClick={changeNr}>GO</button>
         <button onClick={changeFs}>FS</button>
+        <button onClick={addKv}>KV</button>
+            <div className="kvc">
+            {
+            kv.map((k, i) => <div key={i} className="kv kv_1">{k}</div>)
+            }
+        </div>
         </>
     )
 }
