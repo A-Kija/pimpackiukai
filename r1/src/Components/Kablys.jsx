@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import rand from '../Functions/rand';
 function Kablys({color}) {
 
     const [nr, setNr] = useState(11);
@@ -20,7 +21,11 @@ function Kablys({color}) {
     }
 
     const addKv = () => {
-        setKv(items => [...items, '2']);
+        const copy = [...kv];
+        copy.push(rand(10, 99));
+        setKv(copy);
+
+        // setKv(items => [...items, rand(10, 99)]);
     }
 
     return (
