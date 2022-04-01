@@ -21,11 +21,13 @@ function Kablys({color}) {
     }
 
     const addKv = () => {
-        const copy = [...kv];
-        copy.push(rand(10, 99));
-        setKv(copy);
+        // const copy = [...kv];
+        // copy.push(rand(10, 99));
+        // setKv(copy);
 
-        // setKv(items => [...items, rand(10, 99)]);
+        setKv(items => [...items, rand(10, 99)]);
+
+        // setKv(items => ({...items, d: rand(10, 99)}));
     }
 
     return (
