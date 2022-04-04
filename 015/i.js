@@ -35,9 +35,15 @@ console.log(Palydovas.pridetiPalydovą());
 
 
 
+// let c = 100;
+
 let km = 0;
 let a;
 do {
+    // if (--c < 0) {
+    //     console.log('ciklas');
+    //     break;
+    // }
     km++;
     const kengura = Palydovas.rand(0, 1);
     const vairas = Palydovas.rand(0, 1);
