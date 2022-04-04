@@ -1,9 +1,9 @@
-function Mygtukas({sniurelis,sniurelis2}) {
+function Mygtukas({sniurelis, sniurelis2, count}) {
     return (
         <>
 
         <button onClick={sniurelis}>+</button>
-        <button onClick={sniurelis2}>[]</button>
+        <button onClick={sniurelis2}>[{count}]</button>
 
         </>
     )

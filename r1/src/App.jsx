@@ -15,7 +15,7 @@ function App() {
     }
 
     const addKv = () => {
-        setKv(k => [...k, 'Bū']);
+        setKv(k => [...k, sk]);
     }
 
 
@@ -23,10 +23,10 @@ function App() {
     <div className="App">
         <h1>STaTE UPLiFTiNG</h1>
         <H2 skaicius={sk}></H2>
-        <div className='kvc'>
+        <Mygtukas sniurelis={add} sniurelis2={addKv} count={kv.length}></Mygtukas>
         <Kv kv={kv}></Kv>
-        </div>
-        <Mygtukas sniurelis={add} sniurelis2={addKv}></Mygtukas>
+        
+        
 
     </div>
   );
