@@ -32,3 +32,18 @@ console.log(Palydovas.pridetiPalydovą());
 console.log(Palydovas.pridetiPalydovą());
 console.log(Palydovas.pridetiPalydovą());
 console.log(Palydovas.pridetiPalydovą());
+
+
+
+let km = 0;
+let a;
+do {
+    km++;
+    const kengura = Palydovas.rand(0, 1);
+    const vairas = Palydovas.rand(0, 1);
+    const stabdis = Palydovas.rand(0, 1);
+    console.log(kengura, vairas, stabdis);
+    a = kengura + vairas + stabdis;
+} while (a);
+
+console.log(km - 1);
