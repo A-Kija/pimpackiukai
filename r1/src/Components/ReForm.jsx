@@ -6,6 +6,7 @@ function ReForm() {
     const [select, setSelect] = useState('1');
     const [checkbox, setCheckbox] = useState(0);
     const [radio, setRadio] = useState('3');
+    const [range, setRange] = useState('0');
 
 
     const textChange = e => {
@@ -26,6 +27,10 @@ function ReForm() {
 
     const radioChange = e => {
         setRadio(e.target.value);
+    }
+
+    const rangeChange = e => {
+        setRange(e.target.value);
     }
 
     return (
@@ -59,6 +64,11 @@ function ReForm() {
             A1<input onChange={radioChange} type="radio" name="r" value="1" checked={radio === '1'} />
             B2<input onChange={radioChange} type="radio" name="r" value="2" checked={radio === '2'} />
             C3<input onChange={radioChange} type="radio" name="r" value="3" checked={radio === '3'} />
+        </fieldset>
+
+        <fieldset>
+            <legend>RANGE</legend>
+            <input type="range" onChange={rangeChange} value={range}></input>
         </fieldset>
 
         </>
