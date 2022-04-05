@@ -2,13 +2,13 @@ import { useState } from "react"
 
 function Cats() {
 
-    const [cat, setCat] = useState('');
+    const [catName, setCatName] = useState('');
     const [catsList, setCatsList] = useState([]);
     const [catColor, setCatColor] = useState('brown');
 
     const add = () => {
-        setCatsList(c => [...c, {catName:cat, catColor:catColor}]);
-        setCat('');
+        setCatsList(c => [...c, {catName:catName, catColor:catColor}]);
+        setCatName('');
     }
 
     return (
@@ -20,8 +20,8 @@ function Cats() {
             <option value="gray">Gray</option>
             <option value="bisque">Biskvitas</option>
         </select>
-        
-        <input onChange={e => setCat(e.target.value)} value={cat}/>
+
+        <input onChange={e => setCatName(e.target.value)} value={catName}/>
         <div className="kvc">
         {
             catsList.map((c,i) => {
