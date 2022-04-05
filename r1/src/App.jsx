@@ -1,11 +1,11 @@
 import './App.css';
-import ReForm from './Components/ReForm';
+import Cats from './Components/Cats';
 
 function App() {
   return (
     <div className="App">
         <h1>FORMS</h1>
-        <ReForm></ReForm>
+        <Cats></Cats>
     </div>
   );
 }
