@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
         <h1>RePEAT</h1>
-        <A letter="A"></A>
+        <A letter="A" letter2="D"></A>
         <B letter="B" letter1="C"></B>
     </div>
   );
