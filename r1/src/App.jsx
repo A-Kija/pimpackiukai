@@ -1,11 +1,13 @@
 import './App.css';
-import Cats from './Components/Cats';
+import A from './Components/A';
+import B from './Components/B';
 
 function App() {
   return (
     <div className="App">
-        <h1>FORMS</h1>
-        <Cats></Cats>
+        <h1>RePEAT</h1>
+        <A letter="A"></A>
+        <B letter="B"></B>
     </div>
   );
 }
