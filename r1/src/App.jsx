@@ -7,7 +7,7 @@ function App() {
     <div className="App">
         <h1>RePEAT</h1>
         <A letter="A"></A>
-        <B letter="B"></B>
+        <B letter="B" letter1="C"></B>
     </div>
   );
 }
