@@ -1,12 +1,17 @@
-import C from "./C";
+import { useState } from "react";
 
-function B({letter, letter2, letter3}) {
+function B() {
 
+    const [letter, setLetter] = useState('B');
+
+    const go = () => {
+        setLetter(l => l === 'B' ? '' : 'B');
+    }
 
     return (
         <>
         <h2 style={{fontSize: '100px'}}>{letter}</h2>
-        <C letter={letter2} letter3={letter3}></C>
+        <button onClick={go}>X</button>
         </>
     )
 }
