@@ -3,7 +3,7 @@ import { useState } from "react";
 function E() {
 
     const [blue, setBlue] = useState(false);
-    const [green, setGreen] = useState(false);
+    const [green, setGreen] = useState(true);
 
     const handleBlue = () => {
         setBlue(c => !c);
