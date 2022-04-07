@@ -3,20 +3,27 @@ import C from './C';
 
 function A() {
 
-    const [letter, setLetter] = useState('A');
-    const [letter1, setLetter1] = useState('C');
+    const [letters, setLetters] = useState('');
+    const [goValaue, setGoValaue] = useState('');
+   
+
+    const handleInput = e => {
+        setLetters(e.target.value);
+    }
 
     const go = () => {
-        setLetter(l => l === 'C' ? 'A' : 'C');
-        setLetter1(l => l === 'C' ? 'A' : 'C');
+        setGoValaue(letters);
     }
 
     return (
         <>
-       <button onClick={go}>C</button>
-       <h2 style={{fontSize: '100px'}}>{letter1}</h2>
+       
+            <h2 style={{fontSize: '100px'}}>{goValaue}</h2>
 
-        <C letter={letter}></C>
+            <input type="text" value={letters} onChange={handleInput}></input>
+            <button onClick={go}>GO</button>
+
+
         </>
     )
 }

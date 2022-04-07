@@ -7,7 +7,6 @@ function App() {
     <div className="App">
         <h1>RePEAT</h1>
         <A></A>
-        <B></B>
     </div>
   );
 }
