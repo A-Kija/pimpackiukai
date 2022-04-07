@@ -1,9 +1,32 @@
-function C({letter}) {
+import { useState } from "react";
+
+function C() {
+
+    const [checkbox, setCheckbox] = useState(false);
+    const [showBlue, setShowBlue] = useState(false);
+
+    const handleInput = () => {
+        setCheckbox(c => !c);
+    }
+
+    const show = () => {
+        setShowBlue(checkbox);
+    }
 
     return (
-        <>
-        <h2 style={{fontSize: '100px'}}>{letter}</h2>
-        </>
+        <div>
+        { showBlue ?
+        <h2 style={{
+            width: '100px',
+            height: '100px',
+            background: 'blue'
+            }}></h2>
+        : null
+        }
+
+            <input type="checkbox" checked={checkbox} onChange={handleInput}  />
+            <button onClick={show}>Show or not to Show</button>
+        </div>
 
     )
 }

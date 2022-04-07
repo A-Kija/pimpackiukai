@@ -1,5 +1,4 @@
 import { useState } from "react";
-import C from './C';
 
 function A() {
 
@@ -22,7 +21,6 @@ function A() {
 
             <input type="text" value={letters} onChange={handleInput}></input>
             <button onClick={go}>GO</button>
-
 
         </>
     )
