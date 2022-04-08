@@ -1,27 +1,17 @@
 import { useState } from "react";
 
-function A() {
+function A({makeShow}) {
 
-    const [letters, setLetters] = useState('');
-    const [goValaue, setGoValaue] = useState('');
+    const [check, setCheck] = useState(false);
    
-
-    const handleInput = e => {
-        setLetters(e.target.value);
-    }
-
-    const go = () => {
-        setGoValaue(letters);
+    const handleInput = () => {
+        makeShow(!check);
+        setCheck(c => !c)           
     }
 
     return (
         <>
-       
-            <h2 style={{fontSize: '100px'}}>{goValaue}</h2>
-
-            <input type="text" value={letters} onChange={handleInput}></input>
-            <button onClick={go}>GO</button>
-
+            <input type="checkbox" checked={check} onChange={handleInput}></input>
         </>
     )
 }

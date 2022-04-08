@@ -1,13 +1,24 @@
+import { useState } from 'react';
 import './App.css';
 
-import F from './Components/F';
+import A from './Components/A';
+import B from './Components/B';
 
 function App() {
+
+const [show, setShow] = useState(false);
+
+
+const makeShow = doShow => {
+  setShow(doShow);
+}
+
   return (
     <div className="App">
-        <h1>RePEAT</h1>
+        <h1>RePEAT 3</h1>
 
-        <F></F>
+        <A makeShow={makeShow}></A>
+        <B showBlue={show}></B>
     </div>
   );
 }
