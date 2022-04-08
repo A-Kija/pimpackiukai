@@ -1,17 +1,20 @@
 import { useState } from "react";
 
-function A({makeShow}) {
+function A({virvute}) {
 
-    const [check, setCheck] = useState(false);
+    const [laukelioReiksme, setlaukelioReiksme] = useState('tuscia');
+    
    
-    const handleInput = () => {
-        makeShow(!check);
-        setCheck(c => !c)           
+    const keistiReiksme = e => {
+        setlaukelioReiksme(e.target.value);
+        virvute(e.target.value);
     }
+
 
     return (
         <>
-            <input type="checkbox" checked={check} onChange={handleInput}></input>
+            
+            <input type="text" value={laukelioReiksme} onChange={keistiReiksme}></input>
         </>
     )
 }

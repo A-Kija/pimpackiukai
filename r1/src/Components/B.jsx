@@ -1,18 +1,9 @@
 
-function B({showBlue}) {
+function B({melynosRaides}) {
 
 
     return (
-        <div className="kvc">
-        { showBlue ?
-        <h2 style={{
-            width: '100px',
-            height: '100px',
-            background: 'blue'
-            }}></h2>
-        : null
-        }
-        </div>
+        <h2 style={{color: 'blue'}}>{melynosRaides}</h2>
 
     )
     

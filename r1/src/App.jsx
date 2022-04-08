@@ -6,19 +6,18 @@ import B from './Components/B';
 
 function App() {
 
-const [show, setShow] = useState(false);
+  const virvute = duomenys => {
+    setMelynosRaides(duomenys)
+  }
 
-
-const makeShow = doShow => {
-  setShow(doShow);
-}
-
+  const [melynosRaides, setMelynosRaides] = useState('tuscia');
   return (
     <div className="App">
         <h1>RePEAT 3</h1>
 
-        <A makeShow={makeShow}></A>
-        <B showBlue={show}></B>
+        <A virvute={virvute}></A>
+        <B melynosRaides={melynosRaides}></B>
+
     </div>
   );
 }
