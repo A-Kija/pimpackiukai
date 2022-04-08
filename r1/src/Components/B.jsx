@@ -1,9 +1,8 @@
 
-function B({melynosRaides}) {
-
+function B({kvadratoSpalva}) {
 
     return (
-        <h2 style={{color: 'blue'}}>{melynosRaides}</h2>
+        <h2 className="kv" style={{background: kvadratoSpalva}}></h2>
 
     )
     

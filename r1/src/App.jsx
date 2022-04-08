@@ -7,16 +7,16 @@ import B from './Components/B';
 function App() {
 
   const virvute = duomenys => {
-    setMelynosRaides(duomenys)
+    setKvadratoSpalva(duomenys ? 'green' : 'blue')
   }
 
-  const [melynosRaides, setMelynosRaides] = useState('tuscia');
+  const [kvadratoSpalva, setKvadratoSpalva] = useState('tuscia');
   return (
     <div className="App">
         <h1>RePEAT 3</h1>
 
         <A virvute={virvute}></A>
-        <B melynosRaides={melynosRaides}></B>
+        <B kvadratoSpalva={kvadratoSpalva}></B>
 
     </div>
   );
