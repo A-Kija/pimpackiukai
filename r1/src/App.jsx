@@ -10,7 +10,7 @@ function App() {
     setKvadratoSpalva(duomenys ? 'green' : 'blue')
   }
 
-  const [kvadratoSpalva, setKvadratoSpalva] = useState('tuscia');
+  const [kvadratoSpalva, setKvadratoSpalva] = useState('green');
   return (
     <div className="App">
         <h1>RePEAT 3</h1>
