@@ -230,6 +230,19 @@ app.post('/zoo', (req, res) => {
     });
 });
 
+// LIST
+app.get('/zoo', (req, res) => {
+    const sql = `
+        SELECT
+        id, animal_type AS type, animal_weight AS weight, is_alive as isAlive
+        FROM zoo_museum
+    `;
+    con.query(sql, function(err, result) {
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
 
 
 app.listen(port, () => {

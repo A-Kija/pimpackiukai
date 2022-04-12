@@ -24,7 +24,7 @@ function Create({setCreate}) {
                             </div>
                             <div className="form-group">
                                 <label>Animal weight</label>
-                                <input type="text" className="form-control" onChange={e => setWeight(e.target.value)} value={weight} />
+                                <input type="text" className="form-control" onChange={e => setWeight(e.target.value.replace(/,/g, '.'))} value={weight} />
                                 <small className="form-text text-muted">How big is the animal</small>
                             </div>
                             <div className="form-check">
