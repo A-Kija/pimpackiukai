@@ -2,8 +2,6 @@ import Animal from "./Animal";
 
 function List({animals}) {
 
-
-
     return (
         <div className="container list">
             <div className="row">
@@ -11,7 +9,7 @@ function List({animals}) {
                     <div className="card mt-4">
                         <h5 className="card-header">List</h5>
                         <div className="card-body">
-                            <ul class="list-group">
+                            <ul className="list-group">
                                 {
                                     animals.map(a => <Animal key={a.id} a={a}></Animal>)
                                 }

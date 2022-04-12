@@ -15,3 +15,36 @@
 .card {
     border-color: #20c997;
 }
+
+.list {
+    .bin {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+            strong {
+                width: 150px;
+            }
+            small {
+                margin: 0 10px;
+            }
+            span {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                margin: 0 10px;
+                background-color: #007bff;
+            }
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+}

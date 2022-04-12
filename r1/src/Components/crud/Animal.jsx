@@ -2,7 +2,18 @@ function Animal({a}) {
 
 
     return (
-        <li class="list-group-item">{a.type}</li>
+        <li className="list-group-item">
+            <div className="bin">
+                <div className="content">
+                    <strong>{a.type}</strong>
+                    <small>{a.weight}</small>
+                    <span style={{visibility: a.isAlive ? 'visible' : 'hidden'}}></span>
+                </div>
+                <div className="buttons">
+
+                </div>
+            </div>
+        </li>
     )
 }
 
