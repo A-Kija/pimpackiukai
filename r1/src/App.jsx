@@ -3,35 +3,31 @@ import './bootstrap.css';
 import Create from './Components/crud/Create';
 import Top from './Components/crud/Top';
 import './crud.scss';
+import axios from 'axios';
 
 
 function App() {
 
     const [create, setCreate] = useState(null);
 
-    const [alio, setAlio] = useState(1);
-
     useEffect(() => {
         if (null === create) {
             return;
         }
-        console.log(create);
+        axios.post('http://localhost:3003/zoo', create);
     }, [create]);
 
 
     return (
         <>
-            {
-                alio > 5 ? null : <Top alio={alio}></Top>
-            }
-            
+            <Top></Top>
             <div className="container">
                 <div className="row">
                     <div className="col-4">
                         <Create setCreate={setCreate}></Create>
                     </div>
                     <div className="col-8">
-                        <button onClick={() => setAlio(s => s + 1)}>+1</button>
+                        111
                     </div>
                 </div>
             </div>

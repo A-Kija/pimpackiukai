@@ -217,6 +217,19 @@ app.get('/join/right', (req, res) => {
 
 // ZOO MUSEUM
 
+// CREATE
+app.post('/zoo', (req, res) => {
+    const sql = `
+        INSERT INTO zoo_museum
+        (animal_type, animal_weight, is_alive)
+        VALUES (?, ?, ?)
+    `;
+    con.query(sql, [req.body.type, req.body.weight, req.body.isAlive], function(err, result) {
+        // console.log(result, err);
+        res.json({ message: 'OK' });
+    });
+});
+
 
 
 app.listen(port, () => {
