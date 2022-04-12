@@ -1,25 +1,41 @@
-import { useState } from 'react';
-import './App.css';
+import { useEffect, useState } from 'react';
+import './bootstrap.css';
+import Create from './Components/crud/Create';
+import Top from './Components/crud/Top';
+import './crud.scss';
 
-import A from './Components/A';
-import B from './Components/B';
+
+
+
 
 function App() {
 
-  const virvute = duomenys => {
-    setKvadratoSpalva(duomenys ? 'green' : 'blue')
-  }
+    const [create, setCreate] = useState(null);
 
-  const [kvadratoSpalva, setKvadratoSpalva] = useState('green');
-  return (
-    <div className="App">
-        <h1>RePEAT 3</h1>
+    useEffect(() => {
+        if (null === create) {
+            return;
+        }
+        console.log(create);
+    }, [create]);
 
-        <A virvute={virvute}></A>
-        <B kvadratoSpalva={kvadratoSpalva}></B>
 
-    </div>
-  );
+
+    return (
+        <>
+            <Top></Top>
+            <div className="container">
+                <div className="row">
+                    <div className="col-4">
+                        <Create setCreate={setCreate}></Create>
+                    </div>
+                    <div className="col-8">
+                        One of three columns
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default App;

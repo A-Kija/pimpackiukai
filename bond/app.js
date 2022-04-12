@@ -33,7 +33,7 @@
 
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3003;
 const mysql = require('mysql');
 const cors = require('cors');
 app.use(cors());
@@ -127,10 +127,6 @@ app.post('/war', (req, res) => {
     });
 });
 
-
-
-
-
 app.get('/war', (req, res) => {
     if (req.query.type != 0) {
         const sql = `
@@ -215,6 +211,11 @@ app.get('/join/right', (req, res) => {
         res.json(result);
     });
 });
+
+
+
+
+// ZOO MUSEUM
 
 
 
