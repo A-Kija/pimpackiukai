@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Edit() {
+function Edit({setShowId}) {
 
     const [type, setType] = useState('');
     const [weight, setWeight] = useState('');
@@ -17,7 +17,7 @@ function Edit() {
         <div className="container edit">
             <div className="row">
                 <div className="col-sm">
-                    <div className="card mt-4">
+                    <div className="card">
                         <h5 className="card-header">Edit</h5>
                         <div className="card-body">
                             <div className="form-group">
@@ -36,7 +36,7 @@ function Edit() {
                                     Is alive
                                 </label>
                             </div>
-                            
+                            <button type="button" onClick={() => setShowId(0)} className="btn btn-outline-info mt-3">Cancel</button>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ function App() {
     const [create, setCreate] = useState(null);
     const [animals, setAnimals] = useState([]);
     const [updateTime, setUpdateTime] = useState(Date.now());
-    const [showId, setShowId] = useState(777);
+    const [showId, setShowId] = useState(0);
 
     useEffect(() => {
         if (null === create) {
@@ -54,11 +54,11 @@ function App() {
                         <Create setCreate={setCreate}></Create>
                     </div>
                     <div className="col-8">
-                        <List animals={animals} deleteAnimal={deleteAnimal}></List>
+                        <List animals={animals} deleteAnimal={deleteAnimal} setShowId={setShowId}></List>
                     </div>
                 </div>
             </div>
-            <Show showId={showId}></Show>
+            <Show showId={showId} setShowId={setShowId}></Show>
         </>
     );
 }

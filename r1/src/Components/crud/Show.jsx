@@ -1,6 +1,6 @@
 import Edit from "./Edit";
 
-function Show({ showId }) {
+function Show({ showId, setShowId }) {
 
     if (showId === 0) {
         return null;
@@ -11,12 +11,12 @@ function Show({ showId }) {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" onClick={() => setShowId(0)} className="close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div className="modal-body">
-                        <Edit></Edit>
+                        <Edit setShowId={setShowId}></Edit>
                     </div>
                 </div>
             </div>
