@@ -5,6 +5,7 @@ import Top from './Components/crud/Top';
 import './crud.scss';
 import axios from 'axios';
 import List from './Components/crud/List';
+import Show from './Components/crud/Show';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     const [create, setCreate] = useState(null);
     const [animals, setAnimals] = useState([]);
     const [updateTime, setUpdateTime] = useState(Date.now());
+    const [showId, setShowId] = useState(777);
 
     useEffect(() => {
         if (null === create) {
@@ -38,6 +40,10 @@ function App() {
         })
     }
 
+    const show = id => {
+
+    }
+
 
     return (
         <>
@@ -52,6 +58,7 @@ function App() {
                     </div>
                 </div>
             </div>
+            <Show showId={showId}></Show>
         </>
     );
 }

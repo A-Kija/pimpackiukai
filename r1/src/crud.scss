@@ -16,6 +16,16 @@
     border-color: #20c997;
 }
 
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    .modal-body {
+        min-width: 400px;
+    }
+}
+
 .list {
     .bin {
         display: flex;
