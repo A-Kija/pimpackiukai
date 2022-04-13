@@ -1,6 +1,6 @@
 import Animal from "./Animal";
 
-function List({animals}) {
+function List({animals, deleteAnimal}) {
 
     return (
         <div className="container list">
@@ -11,7 +11,7 @@ function List({animals}) {
                         <div className="card-body">
                             <ul className="list-group">
                                 {
-                                    animals.map(a => <Animal key={a.id} a={a}></Animal>)
+                                    animals.map(a => <Animal key={a.id} a={a} deleteAnimal={deleteAnimal}></Animal>)
                                 }
                             </ul>
                         </div>

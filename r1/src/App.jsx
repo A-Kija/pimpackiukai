@@ -11,7 +11,7 @@ function App() {
 
     const [create, setCreate] = useState(null);
     const [animals, setAnimals] = useState([]);
-    const [updateTime, setupdateTime] = useState(Date.now());
+    const [updateTime, setUpdateTime] = useState(Date.now());
 
     useEffect(() => {
         if (null === create) {
@@ -19,7 +19,7 @@ function App() {
         }
         axios.post('http://localhost:3003/zoo', create)
         .then(res => {
-            setupdateTime(Date.now());
+            setUpdateTime(Date.now());
         })
     }, [create]);
 
@@ -31,6 +31,13 @@ function App() {
         });
     }, [updateTime]);
 
+    const deleteAnimal = id => {
+        axios.delete('http://localhost:3003/zoo/' + id)
+        .then(res => {
+            setUpdateTime(Date.now());
+        })
+    }
+
 
     return (
         <>
@@ -41,7 +48,7 @@ function App() {
                         <Create setCreate={setCreate}></Create>
                     </div>
                     <div className="col-8">
-                        <List animals={animals}></List>
+                        <List animals={animals} deleteAnimal={deleteAnimal}></List>
                     </div>
                 </div>
             </div>

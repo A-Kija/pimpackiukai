@@ -1,4 +1,4 @@
-function Animal({a}) {
+function Animal({a, deleteAnimal}) {
 
     return (
         <li className="list-group-item">
@@ -9,7 +9,7 @@ function Animal({a}) {
                     <span style={{visibility: a.isAlive ? 'visible' : 'hidden'}}></span>
                 </div>
                 <div className="buttons">
-
+                <button type="button" onClick={() => deleteAnimal(a.id)} className="btn btn-outline-danger">Delete</button>
                 </div>
             </div>
         </li>
