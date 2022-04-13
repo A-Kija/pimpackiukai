@@ -1,6 +1,6 @@
 import Edit from "./Edit";
 
-function Show({ showId, setShowId }) {
+function Show({ showId, setShowId, show }) {
 
     if (showId === 0) {
         return null;
@@ -16,7 +16,7 @@ function Show({ showId, setShowId }) {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <Edit setShowId={setShowId}></Edit>
+                        <Edit setShowId={setShowId} showData={show()}></Edit>
                     </div>
                 </div>
             </div>

@@ -40,8 +40,8 @@ function App() {
         })
     }
 
-    const show = id => {
-
+    const show = () => {
+        return animals.filter(a => a.id === showId)[0];
     }
 
 
@@ -58,7 +58,7 @@ function App() {
                     </div>
                 </div>
             </div>
-            <Show showId={showId} setShowId={setShowId}></Show>
+            <Show showId={showId} setShowId={setShowId} show={show}></Show>
         </>
     );
 }

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-function Edit({setShowId}) {
+function Edit({setShowId, showData}) {
 
     const [type, setType] = useState('');
     const [weight, setWeight] = useState('');
@@ -12,6 +12,12 @@ function Edit({setShowId}) {
     //     setWeight('');
     //     setIsAlive(0);
     // }
+
+    useEffect(() => {
+        setType(showData.type);
+        setWeight(showData.weight);
+        setIsAlive(showData.isAlive);
+    }, [showData]);
 
     return (
         <div className="container edit">
