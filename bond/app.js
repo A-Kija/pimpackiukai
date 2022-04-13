@@ -225,7 +225,7 @@ app.post('/zoo', (req, res) => {
         VALUES (?, ?, ?)
     `;
     con.query(sql, [req.body.type, req.body.weight, req.body.isAlive], function(err, result) {
-        // console.log(result, err);
+        console.log(result, err);
         res.json({ message: 'OK' });
     });
 });
@@ -240,6 +240,18 @@ app.get('/zoo', (req, res) => {
     con.query(sql, function(err, result) {
         if (err) throw err;
         res.json(result);
+    });
+});
+
+app.delete('/zoo/:id', (req, res) => {
+    const sql = `
+    DELETE
+    FROM zoo_museum
+    WHERE id = ?
+    `;
+    con.query(sql, [req.params.id], function(err, result) {
+        console.log(result, err);
+        res.json({ message: 'OK' });
     });
 });
 
