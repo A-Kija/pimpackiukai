@@ -1,6 +1,5 @@
 function Animal({a}) {
 
-
     return (
         <li className="list-group-item">
             <div className="bin">

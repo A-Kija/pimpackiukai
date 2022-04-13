@@ -8,6 +8,9 @@ function Create({setCreate}) {
 
     const buttonHandler = () => {
         setCreate({type, weight, isAlive});
+        setType('');
+        setWeight('');
+        setIsAlive(0);
     }
 
     return (
@@ -28,7 +31,7 @@ function Create({setCreate}) {
                                 <small className="form-text text-muted">How big is the animal</small>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input"  onChange={() => setIsAlive(a => a ? 0 : 1)} checked={isAlive} type="checkbox" />
+                                <input className="form-check-input" onChange={() => setIsAlive(a => a ? 0 : 1)} checked={isAlive} type="checkbox" />
                                 <label className="form-check-label">
                                     Is alive
                                 </label>

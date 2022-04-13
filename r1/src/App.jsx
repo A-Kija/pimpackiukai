@@ -11,12 +11,16 @@ function App() {
 
     const [create, setCreate] = useState(null);
     const [animals, setAnimals] = useState([]);
+    const [updateTime, setupdateTime] = useState(Date.now());
 
     useEffect(() => {
         if (null === create) {
             return;
         }
-        axios.post('http://localhost:3003/zoo', create);
+        axios.post('http://localhost:3003/zoo', create)
+        .then(res => {
+            setupdateTime(Date.now());
+        })
     }, [create]);
 
 
@@ -25,7 +29,7 @@ function App() {
         .then(res => {
             setAnimals(res.data);
         });
-    }, []);
+    }, [updateTime]);
 
 
     return (
