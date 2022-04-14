@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 
-function Edit({setShowId, showData}) {
+function Edit({setShowId, showData, setEdit}) {
 
     const [type, setType] = useState('');
     const [weight, setWeight] = useState('');
     const [isAlive, setIsAlive] = useState(0);
 
-    // const buttonHandler = () => {
-    //     setCreate({type, weight, isAlive});
-    //     setType('');
-    //     setWeight('');
-    //     setIsAlive(0);
-    // }
+    const buttonHandler = () => {
+        setEdit({type, weight, isAlive, id: showData.id});
+        setType('');
+        setWeight('');
+        setIsAlive(0);
+        setShowId(0);
+    }
 
     useEffect(() => {
         setType(showData.type);
@@ -42,6 +43,7 @@ function Edit({setShowId, showData}) {
                                     Is alive
                                 </label>
                             </div>
+                            <button type="button" onClick={buttonHandler} className="btn btn-outline-success mt-3 mr-3">Save</button>
                             <button type="button" onClick={() => setShowId(0)} className="btn btn-outline-info mt-3">Cancel</button>
                         </div>
                     </div>

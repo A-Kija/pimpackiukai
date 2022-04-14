@@ -11,6 +11,7 @@ import Show from './Components/crud/Show';
 function App() {
 
     const [create, setCreate] = useState(null);
+    const [edit, setEdit] = useState(null);
     const [animals, setAnimals] = useState([]);
     const [updateTime, setUpdateTime] = useState(Date.now());
     const [showId, setShowId] = useState(0);
@@ -24,6 +25,17 @@ function App() {
             setUpdateTime(Date.now());
         })
     }, [create]);
+
+
+    useEffect(() => {
+        if (null === edit) {
+            return;
+        }
+        axios.put('http://localhost:3003/zoo/'+ edit.id, edit)
+        .then(res => {
+            setUpdateTime(Date.now());
+        })
+    }, [edit]);
 
 
     useEffect(() => {
@@ -58,7 +70,7 @@ function App() {
                     </div>
                 </div>
             </div>
-            <Show showId={showId} setShowId={setShowId} show={show}></Show>
+            <Show showId={showId} setShowId={setShowId} show={show} setEdit={setEdit}></Show>
         </>
     );
 }
