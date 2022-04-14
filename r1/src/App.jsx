@@ -56,10 +56,10 @@ function App() {
         const copy = [...animals];
         switch (parseInt(value)) {
             case 1:
-                setAnimals(copy.sort((a, b) => b.weight - a.weight))
+                setAnimals(copy.sort((a, b) => a.weight - b.weight))
                 break;
             case 2:
-                setAnimals(copy.sort((a, b) => a.weight - b.weight));
+                setAnimals(copy.sort((a, b) => b.weight - a.weight));
                 break;
             case 3: setAnimals(an => {
                 an.sort((a, b) => {
@@ -90,7 +90,6 @@ function App() {
                 break;
             default:
         }
-
     }
 
     const show = () => {
