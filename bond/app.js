@@ -256,6 +256,19 @@ app.delete('/zoo/:id', (req, res) => {
 });
 
 
+app.put('/zoo/:id', (req, res) => {
+    const sql = `
+    UPDATE zoo_museum
+    SET animal_type = ?, animal_weight = ?, is_alive = ?
+    WHERE id = ?
+    `;
+    con.query(sql, [req.body.type, req.body.weight, req.body.isAlive, req.params.id], function(err, result) {
+        console.log(result, err);
+        res.json({ message: 'OK' });
+    });
+});
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

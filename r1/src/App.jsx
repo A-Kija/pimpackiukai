@@ -21,9 +21,9 @@ function App() {
             return;
         }
         axios.post('http://localhost:3003/zoo', create)
-        .then(res => {
-            setUpdateTime(Date.now());
-        })
+            .then(res => {
+                setUpdateTime(Date.now());
+            })
     }, [create]);
 
 
@@ -31,25 +31,66 @@ function App() {
         if (null === edit) {
             return;
         }
-        axios.put('http://localhost:3003/zoo/'+ edit.id, edit)
-        .then(res => {
-            setUpdateTime(Date.now());
-        })
+        axios.put('http://localhost:3003/zoo/' + edit.id, edit)
+            .then(res => {
+                setUpdateTime(Date.now());
+            })
     }, [edit]);
 
 
     useEffect(() => {
         axios.get('http://localhost:3003/zoo')
-        .then(res => {
-            setAnimals(res.data);
-        });
+            .then(res => {
+                setAnimals(res.data);
+            });
     }, [updateTime]);
 
     const deleteAnimal = id => {
         axios.delete('http://localhost:3003/zoo/' + id)
-        .then(res => {
-            setUpdateTime(Date.now());
-        })
+            .then(res => {
+                setUpdateTime(Date.now());
+            })
+    }
+
+    const doSort = value => {
+        const copy = [...animals];
+        switch (parseInt(value)) {
+            case 1:
+                setAnimals(copy.sort((a, b) => b.weight - a.weight))
+                break;
+            case 2:
+                setAnimals(copy.sort((a, b) => a.weight - b.weight));
+                break;
+            case 3: setAnimals(an => {
+                an.sort((a, b) => {
+                    if (a.type > b.type) {
+                        return 1;
+                    }
+                    if (a.type < b.type) {
+                        return -1;
+                    }
+                    return 0;
+                });
+                return [...an];
+            });
+                break;
+            case 4:
+                setAnimals(an => {
+                    an.sort((a, b) => {
+                        if (a.type > b.type) {
+                            return -1;
+                        }
+                        if (a.type < b.type) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+                    return [...an];
+                });
+                break;
+            default:
+        }
+
     }
 
     const show = () => {
@@ -59,7 +100,7 @@ function App() {
 
     return (
         <>
-            <Top></Top>
+            <Top doSort={doSort}></Top>
             <div className="container">
                 <div className="row">
                     <div className="col-4">

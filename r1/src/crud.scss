@@ -1,8 +1,23 @@
 .top {
     background-color: #ffc107;
     padding: 10px;
-    h1 {
-        color: #007bff;
+    .bin {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        h1 {
+            color: #007bff;
+        }
+        .sort {
+            margin: 0 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            h5 {
+                color: brown;
+                margin: 0 5px;
+            }
+        }
     }
 }
 
