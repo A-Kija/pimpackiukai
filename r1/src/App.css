@@ -80,3 +80,13 @@ span {
     justify-content: center;
     background-color: cornflowerblue;
 }
+
+.line {
+    min-width: 200px;
+    min-height: 200px;
+    border-radius: 50%;
+    margin: 45px;
+    border: 3px dotted crimson;
+    background-color: cornflowerblue;
+    display: inline-block;
+}
