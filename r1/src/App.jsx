@@ -1,5 +1,5 @@
 import { useReducer, useState } from 'react';
-import { add1, addSq, rem1 } from './Actions/basic';
+import { add1, addManySq, addSq, rem1, remSq } from './Actions/basic';
 import './App.css';
 import c2Reducer from './Reducers/c2Reducer';
 import sqReducer from './Reducers/sqReducer';
@@ -7,6 +7,8 @@ import sqReducer from './Reducers/sqReducer';
 function App() {
 
     const [c1, setC1] = useState(0);
+
+    const [inp, setInp] = useState('');
 
     const [c2, dispachC2] = useReducer(c2Reducer, 0);
 
@@ -33,7 +35,9 @@ function App() {
             <fieldset>
                 <legend>SQUARES</legend>
                 <button onClick={() => dispachSq(addSq())}>Add</button>
-               
+                <button onClick={() => dispachSq(remSq())}>Remove</button>
+                <input value={inp} onChange={e => setInp(e.target.value)}></input>
+                <button onClick={() => dispachSq(addManySq(inp))}>Add Many</button>
             </fieldset>
 
             <div className="kvc">
