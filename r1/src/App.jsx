@@ -1,30 +1,23 @@
+import { useReducer, useState } from 'react';
 import './App.css';
-import Senelis from './Components/Senelis';
-import { useState } from 'react';
-import SenelioZinios from './Contexts/SenelioZinios';
-import SenelioZinios2 from './Contexts/SenelioZinios2';
+import c2Reducer from './Reducers/c2Reducer';
 
 function App() {
 
-    const [kaSakoSenelis, keistiKaSakoSenelis] = useState(0);
-    const [kaSakoSenelis2, keistiKaSakoSenelis2] = useState(0);
+    const [c1, setC1] = useState(0);
+
+    const [c2, dispachC2] = useReducer(c2Reducer, 0);
 
     return (
         <div className="App">
-            <h1>{kaSakoSenelis} {kaSakoSenelis2}</h1>
-            <button onClick={() => {
-                keistiKaSakoSenelis(c => c + 1);
-                keistiKaSakoSenelis2(c => c + 333);
-            }
-            }>Sakyk, Seneli</button>
+            <h1>ReDUCeR</h1>
+            <h2>state count: {c1}</h2>
 
-            <SenelioZinios.Provider value={kaSakoSenelis}>
-            <SenelioZinios2.Provider value={kaSakoSenelis2}>
-    
-                <Senelis></Senelis>
-
-            </SenelioZinios2.Provider>
-            </SenelioZinios.Provider>
+            <fieldset>
+                <legend>STATE</legend>
+                <button onClick={() => setC1(c => c + 1)}>+1</button>
+                <button onClick={() => setC1(c => c - 1)}>-1</button>
+            </fieldset>
 
         </div>
     );
