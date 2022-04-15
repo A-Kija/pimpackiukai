@@ -1,13 +1,16 @@
 import { useReducer, useState } from 'react';
-import { add1, rem1 } from './Actions/basic';
+import { add1, addSq, rem1 } from './Actions/basic';
 import './App.css';
 import c2Reducer from './Reducers/c2Reducer';
+import sqReducer from './Reducers/sqReducer';
 
 function App() {
 
     const [c1, setC1] = useState(0);
 
     const [c2, dispachC2] = useReducer(c2Reducer, 0);
+
+    const [sq, dispachSq] = useReducer(sqReducer, []);
 
     return (
         <div className="App">
@@ -26,6 +29,18 @@ function App() {
                 <button onClick={() => dispachC2(add1())}>+1</button>
                 <button onClick={() => dispachC2(rem1())}>-1</button>
             </fieldset>
+
+            <fieldset>
+                <legend>SQUARES</legend>
+                <button onClick={() => dispachSq(addSq())}>Add</button>
+               
+            </fieldset>
+
+            <div className="kvc">
+                {
+                    sq.map((_, i) => <div key={i} className="kv kv_1"></div>)
+                }
+            </div>
 
         </div>
     );
