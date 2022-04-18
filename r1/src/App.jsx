@@ -37,7 +37,7 @@ function App() {
                 <button onClick={() => dispachSq(addSq())}>Add</button>
                 <button onClick={() => dispachSq(remSq())}>Remove</button>
                 <input value={inp} onChange={e => setInp(e.target.value)}></input>
-                <button onClick={() => dispachSq(addManySq(inp))}>Add Many</button>
+                <button onClick={() => dispachSq(addManySq({inp, sk: 5}))}>Add Many</button>
             </fieldset>
 
             <div className="kvc">

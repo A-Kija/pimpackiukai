@@ -11,7 +11,7 @@ function sqReducer(state, action) {
             c.shift();
             break;
         case ADD_MANY_SQ:
-            for (let i = 0; i < action.payload; i++) {
+            for (let i = 0; i < action.payload.inp; i++) {
                 c.push(1);
             }
             break;
