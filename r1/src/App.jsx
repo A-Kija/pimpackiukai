@@ -1,53 +1,32 @@
-import { useReducer, useState } from 'react';
-import { add1, addManySq, addSq, rem1, remSq } from './Actions/basic';
+import { useEffect, useReducer } from 'react';
 import './App.css';
-import c2Reducer from './Reducers/c2Reducer';
-import sqReducer from './Reducers/sqReducer';
+import usersReducer from './Reducers/usersReducer';
+import axios from 'axios';
+import { getUsersFromServer } from './Actions/users';
+
+
+
 
 function App() {
 
-    const [c1, setC1] = useState(0);
+    const [users, dispachUsers] = useReducer(usersReducer, []);
 
-    const [inp, setInp] = useState('');
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(res => dispachUsers(getUsersFromServer(res.data)));
+    })
 
-    const [c2, dispachC2] = useReducer(c2Reducer, 0);
+  return (
+    <div className="App">
 
-    const [sq, dispachSq] = useReducer(sqReducer, []);
+        <ul>
+            {
+                users.map(u => <li key={u.id}>{u.name}</li>)
+            }
+        </ul>
 
-    return (
-        <div className="App">
-            <h1>ReDUCeR</h1>
-            <h2>state count: {c1}</h2>
-            <h2>state count: {c2}</h2>
-
-            <fieldset>
-                <legend>STATE</legend>
-                <button onClick={() => setC1(c => c + 1)}>+1</button>
-                <button onClick={() => setC1(c => c - 1)}>-1</button>
-            </fieldset>
-
-            <fieldset>
-                <legend>REDUCER</legend>
-                <button onClick={() => dispachC2(add1())}>+1</button>
-                <button onClick={() => dispachC2(rem1())}>-1</button>
-            </fieldset>
-
-            <fieldset>
-                <legend>SQUARES</legend>
-                <button onClick={() => dispachSq(addSq())}>Add</button>
-                <button onClick={() => dispachSq(remSq())}>Remove</button>
-                <input value={inp} onChange={e => setInp(e.target.value)}></input>
-                <button onClick={() => dispachSq(addManySq({inp, sk: 5}))}>Add Many</button>
-            </fieldset>
-
-            <div className="kvc">
-                {
-                    sq.map((_, i) => <div key={i} className="kv kv_1"></div>)
-                }
-            </div>
-
-        </div>
-    );
+    </div>
+  );
 }
 
 export default App;
