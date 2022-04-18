@@ -1,4 +1,4 @@
-import { GET_USERS_FROM_SERVER, SORT_USERS_AY, SORT_USERS_YA } from "../Constants/users";
+import { BY_ZIP, GET_USERS_FROM_SERVER, SORT_USERS_AY, SORT_USERS_YA } from "../Constants/users";
 
 function usersReducer(state, action) {
     const c = [...state];
@@ -28,6 +28,16 @@ function usersReducer(state, action) {
                 return 0;
             });
             break;
+        case BY_ZIP:
+            c.sort((a, b) => {
+                if (a.address.zipcode > b.address.zipcode) {
+                    return 1 * action.payload;
+                }
+                if (a.address.zipcode < b.address.zipcode) {
+                    return -1 * action.payload;
+                }
+                return 0;
+            })
         default:
     }
     return c;

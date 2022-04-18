@@ -1,4 +1,4 @@
-import { GET_USERS_FROM_SERVER, SORT_USERS_AY, SORT_USERS_YA } from '../Constants/users';
+import { BY_ZIP, GET_USERS_FROM_SERVER, SORT_USERS_AY, SORT_USERS_YA } from '../Constants/users';
 
 export function getUsersFromServer(users) {
     return {
@@ -16,5 +16,12 @@ export function sortUsersAy() {
 export function sortUsersYa() {
     return {
         type: SORT_USERS_YA
+    }
+}
+
+export function byZip(direction) {
+    return {
+        type: BY_ZIP,
+        payload: direction
     }
 }
