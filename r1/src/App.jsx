@@ -1,36 +1,94 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import usersReducer from './Reducers/usersReducer';
 import axios from 'axios';
-import { getUsersFromServer, sortUsersAy, sortUsersYa } from './Actions/users';
-import { byZip } from './Actions/users';
-
-
 
 function App() {
 
-    const [users, dispachUsers] = useReducer(usersReducer, []);
+    const [c, setC] = useState(0);
+
+    const [users, setUsers] = useState([]);
+
+    const masterUsers = useRef([]);
+
+
+    // let count = 123;
+    const count = useRef(123);
+
+    const green = useRef();
+
+    const focus = useRef();
+
+    const go = () => {
+        console.log(++count.current);
+    }
+
+    const goC = () => {
+        console.log(c + 1);
+        setC(a => a + 1)
+    }
+
+    const goGreen = () => {
+        // document.querySelector('h2').style.color = 'green';
+        green.current.style.color = 'green';
+    }
+
+    const all = () => {
+        setUsers(masterUsers.current);
+    }
+
+    const filter = () => {
+        setUsers(masterUsers.current.filter(u => u.first_name === 'George' || u.first_name === 'Lindsay'));
+    }
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/users')
-        .then(res => dispachUsers(getUsersFromServer(res.data)));
+
+        focus.current.focus();
+
     }, []);
 
-  return (
-    <div className="App">
-    <button onClick={() => dispachUsers(sortUsersAy())}>A-Y</button>
-    <button onClick={() => dispachUsers(sortUsersYa())}>Y-A</button>
 
-    <button onClick={() => dispachUsers(byZip(1))}>zip A-Y</button>
-    <button onClick={() => dispachUsers(byZip(-1))}>zip Y-A</button>
-        <ul>
+    useEffect(() => {
+
+        axios.get('https://reqres.in/api/users?page=2')
+        .then(res=> {
+            masterUsers.current = res.data.data;
+            setUsers(res.data.data.filter(u => u.first_name === 'George' || u.first_name === 'Lindsay'))
+            console.log(res.data.data);
+        })
+
+    }, []);
+
+    return (
+        <div className="App">
+            
+            <span>Use Ref</span>
+            <br/>
+            <span>let {count.current}</span>
+            <br/>
+            <span>state {c}</span>
+            <br/>
+
+            <button onClick={go}>ADD</button>
+
+            <button onClick={goC}>ReRender</button>
+
+            <button onClick={goGreen}>GREEN</button>
+
+            <button onClick={all}>ALL</button>
+            <button onClick={filter}>FILTER</button>
+
+            <h2 ref={green}>Want to be green</h2>
+
+            <input type="text"></input>
+            <input type="text"></input>
+            <input type="text" ref={focus}></input>
+
             {
-                users.map(u => <li key={u.id}><b>{u.address.zipcode}</b> <i>{u.username}</i> {u.name}</li>)
+                users.map(u => <img key={u.id} src={u.avatar}></img>)
             }
-        </ul>
 
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;
