@@ -58,6 +58,13 @@ function App() {
 
     }, []);
 
+    const [del, setDel] = useState([]);
+
+    useEffect(() => {
+        axios.get('https://reqres.in/api/users?delay=3')
+        .then(res => setDel(res.data.data))
+    }, [])
+
     return (
         <div className="App">
             
@@ -84,8 +91,18 @@ function App() {
             <input type="text" ref={focus}></input>
 
             {
-                users.map(u => <img key={u.id} src={u.avatar}></img>)
+                // users.map(u => <img key={u.id} src={u.avatar}></img>)
             }
+
+            <div className="kvc">
+                {
+                    del.length ? del.map(u => <img key={u.id} src={u.avatar}></img>) : <div class="lds-hourglass"></div>
+                }
+
+
+            </div>
+
+
 
         </div>
     );
