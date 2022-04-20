@@ -1,4 +1,5 @@
 import './App.css';
+import My1 from './Components/u/My1';
 import Suo1 from './Components/u/Suo1';
 import Suo2 from './Components/u/Suo2';
 import Suo3 from './Components/u/Suo3';
@@ -14,6 +15,9 @@ function App() {
         <Suo3 dogs={dogs}></Suo3>
         <Suo4 dogs={dogs}></Suo4>
         <Suo5 dogs={dogs}></Suo5>
+        <My1></My1>
+		
+
     </div>
   );
 }
