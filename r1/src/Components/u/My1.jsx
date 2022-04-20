@@ -8,7 +8,7 @@ function My1() {
         <div className="kvc">
             <button className="button" onClick={() => setState(s => !s)}>Do Magic</button>
             {
-                state ? <div className="kv kv_1 aps"></div> : <div className="kv kv_1"></div>
+                state ? <div className="kv kv_2 aps"></div> : <div className="kv kv_1"></div>
             }
         </div>
     )
