@@ -58,6 +58,7 @@ span {
     align-items: center;
     justify-content: center;
     position: relative;
+    border: 3px solid transparent;
 }
 
 .aps {
@@ -86,6 +87,15 @@ span {
 
 .kv_3 {
     background-color: darkgoldenrod;
+}
+
+.kv_4 {
+    background-color: darkred;
+    color: white;
+}
+
+.kv_5 {
+    border: 3px solid darkseagreen;
 }
 
 .cat {
