@@ -171,6 +171,11 @@ span {
     cursor: pointer;
 }
 
+.button.red {
+    background: #fa7676;
+    color: #fff;
+}
+
 
 /* Hover state animation applied here */
 
@@ -186,6 +191,10 @@ span {
     -webkit-animation: active 1200ms ease 1 alternate;
     animation: active 1200ms ease 1 alternate;
     background: #5F9BE0;
+}
+
+.button.red:active {
+    background: #fa7676;
 }
 
 .gray {

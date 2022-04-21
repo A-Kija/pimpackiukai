@@ -2,6 +2,7 @@ import './App.css';
 import My1 from './Components/u/My1';
 import My2 from './Components/u/My2';
 import My3 from './Components/u/My3';
+import My4 from './Components/u/My4';
 import Suo1 from './Components/u/Suo1';
 import Suo2 from './Components/u/Suo2';
 import Suo3 from './Components/u/Suo3';
@@ -20,6 +21,7 @@ function App() {
         <My1></My1>
         <My2></My2>
         <My3></My3>
+        <My4></My4>
 		
 
     </div>
