@@ -176,6 +176,11 @@ span {
     color: #fff;
 }
 
+.button.v {
+    background: #f876fa;
+    color: #fff;
+}
+
 
 /* Hover state animation applied here */
 
@@ -195,6 +200,10 @@ span {
 
 .button.red:active {
     background: #fa7676;
+}
+
+.button.v:active {
+    background: #f876fa;
 }
 
 .gray {
