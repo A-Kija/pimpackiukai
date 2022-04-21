@@ -53,6 +53,17 @@ span {
     margin: 40px;
 }
 
+.kvc.g {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 40px;
+    background-color: lightgreen;
+    padding: 10px;
+    width: calc(100% - 80px);
+}
+
 .kv {
     width: 100px;
     height: 100px;
@@ -101,6 +112,23 @@ span {
 
 .kv_5 {
     border: 3px solid darkseagreen;
+}
+
+.kv_10 {
+    background-color: #76B3FA;
+    color: white;
+}
+
+.tree {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    border: 3px solid darkgreen;
+    min-width: 290px;
 }
 
 .cat {

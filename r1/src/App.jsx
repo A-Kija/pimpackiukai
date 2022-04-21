@@ -9,6 +9,7 @@ import Suo2 from './Components/u/Suo2';
 import Suo3 from './Components/u/Suo3';
 import Suo4 from './Components/u/Suo4';
 import Suo5 from './Components/u/Suo5';
+import Trees from './Components/u/Trees';
 const dogs = ['šuo', 'šunius', 'Bobikas', 'kudlius', 'Šarikas', 'avigalvis'];
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <My3></My3>
         <My4></My4>
         <My5></My5>
+        <Trees></Trees>
 		
 
     </div>
