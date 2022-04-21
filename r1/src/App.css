@@ -119,6 +119,11 @@ span {
     color: white;
 }
 
+.kv_11 {
+    background-color: black;
+    color: white;
+}
+
 .tree {
     display: flex;
     align-items: center;
