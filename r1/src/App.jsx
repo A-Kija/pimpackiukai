@@ -1,4 +1,5 @@
 import './App.css';
+import Local from './Components/u/Local';
 import ManyBlacks from './Components/u/ManyBlacks';
 import My1 from './Components/u/My1';
 import My2 from './Components/u/My2';
@@ -28,6 +29,7 @@ function App() {
         <My5></My5>
         <Trees></Trees>
         <ManyBlacks></ManyBlacks>
+        <Local></Local>
     </div>
   );
 }

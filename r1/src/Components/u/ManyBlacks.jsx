@@ -8,7 +8,7 @@ function ManyBlacks() {
     return (
         <>
             <div className="kvc">
-                <button onClick={() => setBlacks(b => [...b, <PlusBlack key={b.length}></PlusBlack>])}>
+                <button className="button" onClick={() => setBlacks(b => [...b, <PlusBlack key={b.length}></PlusBlack>])}>
                     ADD
                 </button>
             </div>
