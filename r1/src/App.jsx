@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import TetaZita from './Components/routes/TetaZita';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
                 <Link to="/">Home Page</Link>
                 <Link to="/dramblys">Dramblys</Link>
                 <Link to="/pingvinas">Pingvinas</Link>
+                <Link to="/tz">Teta Zita</Link>
             </div>
 
             <div className="kvc">
@@ -17,6 +19,7 @@ function App() {
                 <Route path="/" element={<h2>HOME</h2>}></Route>
                 <Route path="/dramblys" element={<div className="kv kv_3">DRABLIUS</div>}></Route>
                 <Route path="/pingvinas" element={<div className="kv kv_1">PINVIUS</div>}></Route>
+                <Route path="/tz" element={<TetaZita></TetaZita>}></Route>
                 <Route path="*" element={<h2>404 NOT FOUND</h2>}></Route>
             </Routes>
             </div>
