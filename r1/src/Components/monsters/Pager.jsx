@@ -11,21 +11,15 @@ function Pager({ total, perPage, goTo }) {
             p.push(i + 1);
         }
         setPages(p);
-
-
     }, [total, perPage])
-
 
     return (
         <div className="kvc">
-
             {
                 pages.map(p => <div key={p} onClick={() => goTo(p)} className="page-link">{p}</div>)
             }
-
         </div>
     )
-
 }
 
 export default Pager;
