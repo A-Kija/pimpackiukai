@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { monsters } from "../../App";
+import { monsters } from "../../App13";
 
 function Monster() {
 

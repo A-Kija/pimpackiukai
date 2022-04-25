@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { tz } from "../../App";
+import { tz } from "../../App13";
 
 function TetaZita() {
 
