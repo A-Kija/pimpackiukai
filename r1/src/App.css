@@ -411,3 +411,19 @@ span {
         transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     }
 }
+
+.page-link {
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 3px solid violet;
+    color: plum;
+    font-weight: bold;
+    transition: all 0.3s;
+    cursor: pointer;
+}

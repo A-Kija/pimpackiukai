@@ -1,9 +1,22 @@
+import { useState } from 'react';
 import './App.css';
-import Tu6 from "./Components/Tu6";
+import Pager from './Components/monsters/Pager';
+import { monsters, monstersPerPage } from './Data/monsters';
+
 
 function App() {
-  return (
-    <Tu6></Tu6>
-  );
+
+    const [pageNow, setPageNow] = useState(1);
+
+    const goTo = p => {
+        setPageNow(p);
+    }
+
+    return (
+        <>
+            <div className="kvc"><h1>{pageNow}</h1></div>
+            <Pager goTo={goTo} total={monsters.length} perPage={monstersPerPage}></Pager>
+        </>
+    );
 }
 export default App;
