@@ -12,4 +12,4 @@ export const monsters = [
     { id: 1110, type: 'Atomic Musroom' },
 ];
 
-export const monstersPerPage = 1;
+export const monstersPerPage = 3;
