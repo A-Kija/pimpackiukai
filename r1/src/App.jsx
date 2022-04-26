@@ -1,21 +1,17 @@
-import { useState } from 'react';
 import './App.css';
-import Pager from './Components/monsters/Pager';
+import MonstersRoute from './Components/monsters/MonstersRoute';
 import { monsters, monstersPerPage } from './Data/monsters';
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
 
-    const [pageNow, setPageNow] = useState(1);
-
-    const goTo = p => {
-        setPageNow(p);
-    }
-
     return (
         <>
-            <div className="kvc"><h1>{pageNow}</h1></div>
-            <Pager pageNow={pageNow} goTo={goTo} total={monsters.length} perPage={monstersPerPage}></Pager>
+        <BrowserRouter>
+            <Routes>
+                <Route path={'/:pageNow'} element={<MonstersRoute monsters={monsters} monstersPerPage={monstersPerPage}></MonstersRoute>}></Route>
+            </Routes>
+        </BrowserRouter>
         </>
     );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-
-function Pager({ total, perPage, goTo, pageNow }) {
+import { Link } from 'react-router-dom';
+function Pager({ total, perPage, pageNow }) {
 
     const [pages, setPages] = useState([]);
     const [arrowLeft, setArrowLeft] = useState(0);
@@ -16,18 +16,19 @@ function Pager({ total, perPage, goTo, pageNow }) {
     }, [total, perPage]);
 
     useEffect(() => {
-        if (pageNow === 1) {
+        const pn = parseInt(pageNow);
+        if (pn  === 1) {
             setArrowLeft(0);
         }
         else {
-            setArrowLeft(pageNow - 1);
+            setArrowLeft(pn  - 1);
         }
         const count = Math.ceil(total / perPage);
-        if (pageNow === count) {
+        if (pn  === count) {
             setArrowRight(0);
         }
         else {
-            setArrowRight(pageNow + 1)
+            setArrowRight(pn  + 1)
         }
 
     }, [pageNow, total, perPage]);
@@ -35,13 +36,13 @@ function Pager({ total, perPage, goTo, pageNow }) {
     return (
         <div className="kvc">
             {
-                arrowLeft ? <div onClick={() => goTo(arrowLeft)} className="page-link">◀</div> : null
+                arrowLeft ? <Link to={'/'+ arrowLeft} className="page-link">◀</Link> : null
             }
             {
-                pages.map(p => <div key={p} onClick={() => goTo(p)} className="page-link">{p}</div>)
+                pages.map(p => <Link key={p} to={'/' + p} className="page-link">{p}</Link>)
             }
             {
-                arrowRight ? <div onClick={() => goTo(arrowRight)} className="page-link">▶</div> : null
+                arrowRight ? <Link to={'/' + arrowRight} className="page-link">▶</Link> : null
             }
         </div>
     )
