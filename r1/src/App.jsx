@@ -15,7 +15,7 @@ function App() {
     return (
         <>
             <div className="kvc"><h1>{pageNow}</h1></div>
-            <Pager goTo={goTo} total={monsters.length} perPage={monstersPerPage}></Pager>
+            <Pager pageNow={pageNow} goTo={goTo} total={monsters.length} perPage={monstersPerPage}></Pager>
         </>
     );
 }
