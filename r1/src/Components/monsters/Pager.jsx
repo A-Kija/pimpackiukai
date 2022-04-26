@@ -35,13 +35,13 @@ function Pager({ total, perPage, goTo, pageNow }) {
     return (
         <div className="kvc">
             {
-                arrowLeft ? <div onClick={() => goTo(arrowLeft)} className="page-link">{'<'}</div> : null
+                arrowLeft ? <div onClick={() => goTo(arrowLeft)} className="page-link">◀</div> : null
             }
             {
                 pages.map(p => <div key={p} onClick={() => goTo(p)} className="page-link">{p}</div>)
             }
             {
-                arrowRight ? <div onClick={() => goTo(arrowRight)} className="page-link">{'>'}</div> : null
+                arrowRight ? <div onClick={() => goTo(arrowRight)} className="page-link">▶</div> : null
             }
         </div>
     )
