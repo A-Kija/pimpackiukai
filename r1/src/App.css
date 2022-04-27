@@ -77,6 +77,36 @@ span {
     transition: all 0.3s;
 }
 
+.kv.big {
+    width: 200px;
+    height: 370px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 7px 0;
+    position: relative;
+}
+
+.kv svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    transition: all 0.3s;
+}
+
+.kv svg.like {
+    fill: lightcoral;
+}
+
+.kv.big small {
+    margin: 10px 0;
+    max-height: 55px;
+    overflow: hidden;
+}
+
 .aps {
     border-radius: 50%;
 }

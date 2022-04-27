@@ -9,15 +9,16 @@ function App() {
 
     useEffect(() => {
         axios.get('https://in3.dev/knygos/')
-        .then(res => setBooks(res.data));
+            .then(res => setBooks(res.data));
     }, []);
 
-  return (
-    <div className="App">
-        <h1>Books Store</h1>
-        <BooksList books={books}></BooksList>
-    </div>
-  );
+    return (
+        <div className="App">
+            <h1>Books Store</h1>
+            <BooksList books={books}></BooksList>
+
+        </div>
+    );
 }
 
 export default App;

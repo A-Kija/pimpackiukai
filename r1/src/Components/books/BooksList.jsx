@@ -4,7 +4,7 @@ import Loader02 from "./Loader02";
 function BooksList({books}) {
 
     return (
-        <div className="books-list">
+        <div className="kvc">
         {
            books.length ? books.map(b => <Book key={b.id} book={b}></Book>) : <Loader02></Loader02>
         }
