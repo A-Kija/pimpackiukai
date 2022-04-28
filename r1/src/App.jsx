@@ -10,6 +10,7 @@ function App() {
     const [timer, setTimer] = useState(0);
     const change = useRef(false);
     const timerId = useRef();
+    const loaded = useRef(false);
 
     useEffect(() => {
 
@@ -41,7 +42,10 @@ function App() {
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('booksLikes', JSON.stringify([...likes]));
+        if (loaded.current) {
+            localStorage.setItem('booksLikes', JSON.stringify([...likes]));
+        }
+        loaded.current = true;
     }, [timer]);
 
 
