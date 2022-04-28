@@ -1,12 +1,12 @@
 import Book from "./Book";
 import Loader02 from "./Loader02";
 
-function BooksList({books}) {
+function BooksList({books, likeButtonPressed}) {
 
     return (
         <div className="kvc">
         {
-           books.length ? books.map(b => <Book key={b.id} book={b}></Book>) : <Loader02></Loader02>
+           books.length ? books.map(b => <Book key={b.id} book={b} likeButtonPressed={likeButtonPressed}></Book>) : <Loader02></Loader02>
         }
         </div>
     )
