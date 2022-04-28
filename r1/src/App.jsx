@@ -22,27 +22,23 @@ function App() {
         setLikes(new Set(l));
     }, []);
 
+    useEffect(() => {
+        localStorage.setItem('booksLikes', JSON.stringify([...likes]));
+    }, [likes]);
+
 
     const likeButtonPressed = id => {
-        if (likes.has(id)) {
-            setLikes(l => {
-                l.delete(id);
-                return l;
-            });
-        } else {
-            setLikes(l => {
-                l.add(id);
-                return l;
-            });
-        }
+       // isivaizduokit kad cia reduseris
+       const likesCopy = new Set(likes); // fancy kopija
+       likesCopy.has(id) ? likesCopy.delete(id) : likesCopy.add(id);
+       setLikes(likesCopy);
     }
 
 
     return (
         <div className="App">
             <h1>Books Store</h1>
-            <BooksList likeButtonPressed={likeButtonPressed} books={books}></BooksList>
-
+            <BooksList likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
         </div>
     );
 }

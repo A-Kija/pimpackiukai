@@ -1,4 +1,4 @@
-function Book({ book, likeButtonPressed }) {
+function Book({ book, likeButtonPressed, like }) {
 
 
     return (
@@ -6,7 +6,7 @@ function Book({ book, likeButtonPressed }) {
             <img src={book.img} />
             <small>{book.title}</small>
             <i>{book.author}</i>
-            <svg className={1 ? 'like' : ''} onClick={() => likeButtonPressed(book.id)}>
+            <svg className={like ? 'like' : ''} onClick={() => likeButtonPressed(book.id)}>
                 <use xlinkHref="#heart"></use>
             </svg>
         </div>
