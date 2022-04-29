@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import BooksList from './Components/books/BooksList';
+import Ranger from './Components/books/Ranger';
 
 
 function App() {
@@ -13,7 +14,10 @@ function App() {
     const timerId = useRef();
     const loaded = useRef(false);
     const [sort, setSort] = useState('');
-    const booksStore = useRef([]);
+    const [filter, setFiler] = useState(0);
+    const booksStore = useRef([]); // Master store
+
+    const [minMax, setMinMax] = useState([0, 0]);
 
     useEffect(() => {
 
@@ -34,7 +38,15 @@ function App() {
         axios.get('https://in3.dev/knygos/')
             .then(res => {
                 booksStore.current = res.data;
-                setBooks([...booksStore.current])
+                setBooks([...booksStore.current]);
+                let min = booksStore.current[0].price;
+                let max = min;
+                // console.log(typeof max);
+                booksStore.current.forEach(b => {
+                    min = min > b.price ? b.price : min;
+                    max = max < b.price ? b.price : max;
+                });
+                setMinMax([min, max]);
             });
     }, []);
 
@@ -89,7 +101,7 @@ function App() {
             <svg className="arrow arrow-down" onClick={() => setSort('desc')}>
                 <use xlinkHref="#arrow"></use>
             </svg>
-
+            <Ranger minMax={minMax}></Ranger>
             </div>
             <BooksList likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
         </div>
