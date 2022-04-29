@@ -107,8 +107,29 @@ span {
     overflow: hidden;
 }
 
+.arrow {
+    width: 36px;
+    height: 36px;
+    fill: #5F9BE0;
+    cursor: pointer;
+}
+
+.arrow-down {
+    transform: rotate(90deg);
+}
+
+.arrow-up {
+    transform: rotate(-90deg);
+}
+
 .aps {
     border-radius: 50%;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 140%;
+    color: coral;
 }
 
 .number {

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import BooksList from './Components/books/BooksList';
 
+
 function App() {
 
     const [books, setBooks] = useState([]);
@@ -11,6 +12,7 @@ function App() {
     const change = useRef(false);
     const timerId = useRef();
     const loaded = useRef(false);
+    const [sort, setSort] = useState('');
 
     useEffect(() => {
 
@@ -48,6 +50,21 @@ function App() {
         loaded.current = true;
     }, [timer]);
 
+    useEffect(() => {
+        // isivaizduokit kad cia reduseris
+        const booksCopy = [...books];
+        switch(sort) {
+            case 'asc':
+                booksCopy.sort((a, b) => a.price - b.price);
+                break;
+            case 'desc':
+                booksCopy.sort((b, a) => a.price - b.price);
+                break;
+            default:
+        }
+        setBooks(booksCopy);
+    }, [sort]);
+
 
     const likeButtonPressed = id => {
        // isivaizduokit kad cia reduseris
@@ -61,6 +78,15 @@ function App() {
     return (
         <div className="App">
             <h1>Books Store</h1>
+            <div className="kvc">
+            <svg className="arrow arrow-up" onClick={() => setSort('asc')}>
+                <use xlinkHref="#arrow"></use>
+            </svg>
+            <svg className="arrow arrow-down" onClick={() => setSort('desc')}>
+                <use xlinkHref="#arrow"></use>
+            </svg>
+
+            </div>
             <BooksList likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
         </div>
     );
