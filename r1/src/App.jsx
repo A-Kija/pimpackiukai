@@ -6,13 +6,14 @@ import BooksList from './Components/books/BooksList';
 
 function App() {
 
-    const [books, setBooks] = useState([]);
+    const [books, setBooks] = useState([]); // skirtas atvaizdavimui
     const [likes, setLikes] = useState(new Set());
     const [timer, setTimer] = useState(0);
     const change = useRef(false);
     const timerId = useRef();
     const loaded = useRef(false);
     const [sort, setSort] = useState('');
+    const booksStore = useRef([]);
 
     useEffect(() => {
 
@@ -31,7 +32,10 @@ function App() {
 
     useEffect(() => {
         axios.get('https://in3.dev/knygos/')
-            .then(res => setBooks(res.data));
+            .then(res => {
+                booksStore.current = res.data;
+                setBooks([...booksStore.current])
+            });
     }, []);
 
     useEffect(() => {
@@ -52,7 +56,7 @@ function App() {
 
     useEffect(() => {
         // isivaizduokit kad cia reduseris
-        const booksCopy = [...books];
+        const booksCopy = [...booksStore.current];
         switch(sort) {
             case 'asc':
                 booksCopy.sort((a, b) => a.price - b.price);
