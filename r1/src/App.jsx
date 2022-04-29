@@ -66,10 +66,43 @@ function App() {
         loaded.current = true;
     }, [timer]);
 
+    // useEffect(() => {
+    //     // isivaizduokit kad cia reduseris
+    //     const booksCopy = [...booksStore.current];
+    //     switch(sort) {
+    //         case 'asc':
+    //             booksCopy.sort((a, b) => a.price - b.price);
+    //             break;
+    //         case 'desc':
+    //             booksCopy.sort((b, a) => a.price - b.price);
+    //             break;
+    //         default:
+    //     }
+    //     setBooks(booksCopy);
+    // }, [sort]);
+
+
+    // useEffect(() => {
+    //     setBooks(booksStore.current.filter(b => b.price > filter));
+    // }, [filter]);
+
+
     useEffect(() => {
+        const actionObject = {
+            type: 'chage_list', // cia tik iliustracijai
+            payload: {
+                filter: filter,
+                sort: sort
+            }
+        }
+        doChangeList(actionObject);
+    }, [filter, sort]);
+
+
+    const doChangeList = action => {
         // isivaizduokit kad cia reduseris
         const booksCopy = [...booksStore.current];
-        switch(sort) {
+        switch(action.payload.sort) {
             case 'asc':
                 booksCopy.sort((a, b) => a.price - b.price);
                 break;
@@ -78,13 +111,8 @@ function App() {
                 break;
             default:
         }
-        setBooks(booksCopy);
-    }, [sort]);
-
-
-    useEffect(() => {
-        setBooks(booksStore.current.filter(b => b.price > filter));
-    }, [filter])
+        setBooks(booksCopy.filter(b => b.price > action.payload.filter));
+    }
 
 
     const likeButtonPressed = id => {
