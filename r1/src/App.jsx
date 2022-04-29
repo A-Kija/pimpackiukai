@@ -137,6 +137,13 @@ function App() {
             <Ranger minMax={minMax} filter={filter} setFilter={setFilter}></Ranger>
             </div>
             <BooksList likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
+        
+            <div className="cart">
+            <svg >
+                <use xlinkHref="#cart"></use>
+            </svg>
+            <span>8.47 eur</span>
+            </div>
         </div>
     );
 }
