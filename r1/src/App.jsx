@@ -5,6 +5,11 @@ import BooksList from './Components/books/BooksList';
 import Ranger from './Components/books/Ranger';
 import Cart from './Components/books/Cart';
 
+const fakeCart = [
+    {id:2, count: 1},
+    {id:4, count: 2},
+    {id:7, count: 8},
+];
 
 function App() {
 
@@ -16,12 +21,28 @@ function App() {
     const loaded = useRef(false);
     const [sort, setSort] = useState('');
     const [filter, setFilter] = useState(0);
-    const booksStore = useRef([]); // Master store
+
 
     const [minMax, setMinMax] = useState([0, 0]);
 
-
     const [showCart, setShowCart] = useState(0);
+
+    const [cartView, setCartView] = useState([]);
+
+    const booksStore = useRef([]); // Master store
+    const [dataReceived, setDataReceived] = useState(false); // duomenys gauti
+
+
+    useEffect(() => {
+        if(!dataReceived) {
+            return;
+        }
+        setCartView(booksStore.current
+        .filter(b => fakeCart.map(cb => cb.id).indexOf(b.id) !== -1)
+        .map(b => ({...b, count: fakeCart[fakeCart.map(cb => cb.id).indexOf(b.id)].count})));
+
+    }, [dataReceived]);
+
 
     useEffect(() => {
 
@@ -42,6 +63,7 @@ function App() {
         axios.get('https://in3.dev/knygos/')
             .then(res => {
                 booksStore.current = res.data;
+                setDataReceived(true);
                 setBooks([...booksStore.current]);
                 let min = booksStore.current[0].price;
                 let max = min;
@@ -52,6 +74,7 @@ function App() {
                 setMinMax([min, max]);
                 setFilter(Math.floor(min));
             });
+            
     }, []);
 
     useEffect(() => {
@@ -148,7 +171,7 @@ function App() {
             </svg>
             <span>8.47 eur</span>
             <div className="bin">
-                <Cart showCart={showCart} setShowCart={setShowCart}></Cart>
+                <Cart showCart={showCart} setShowCart={setShowCart} cartView={cartView}></Cart>
             </div>
             </div>
         </div>

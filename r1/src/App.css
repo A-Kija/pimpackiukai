@@ -79,7 +79,7 @@ span {
 
 .kv.big {
     width: 200px;
-    height: 370px;
+    height: 400px;
     flex-direction: column;
     justify-content: flex-start;
     padding: 7px 0;
@@ -95,6 +95,22 @@ span {
     bottom: 5px;
     right: 15px;
     transition: all 0.3s;
+}
+
+.kv button {
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+    transition: all 0.3s;
+    background: darkorange;
+    padding: 2px 25px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.45em;
+    border: none;
+    outline: none;
+    border-radius: 5px;
 }
 
 .kv svg.like {
@@ -155,12 +171,13 @@ span {
 }
 
 .nice-cart {
-    width: 200px;
+    width: 400px;
     padding: 6px;
     border: 3px solid darkorange;
     min-height: 200px;
     background-color: #fff;
     position: relative;
+    padding-top: 30px;
 }
 
 .nice-cart .close {
@@ -171,6 +188,13 @@ span {
     position: absolute;
     right: 10px;
     top: 3px;
+}
+
+.cart-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
 }
 
 .number {

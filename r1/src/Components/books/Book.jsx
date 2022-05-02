@@ -10,6 +10,7 @@ function Book({ book, likeButtonPressed, like }) {
             <svg className={like ? 'like' : ''} onClick={() => likeButtonPressed(book.id)}>
                 <use xlinkHref="#heart"></use>
             </svg>
+            <button>Add</button>
         </div>
     );
 }
