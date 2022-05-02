@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import BooksList from './Components/books/BooksList';
 import Ranger from './Components/books/Ranger';
+import Cart from './Components/books/Cart';
 
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
     const booksStore = useRef([]); // Master store
 
     const [minMax, setMinMax] = useState([0, 0]);
+
+
+    const [showCart, setShowCart] = useState(0);
 
     useEffect(() => {
 
@@ -139,10 +143,13 @@ function App() {
             <BooksList likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
         
             <div className="cart">
-            <svg >
+            <svg onClick={() => setShowCart(s => !s)}>
                 <use xlinkHref="#cart"></use>
             </svg>
             <span>8.47 eur</span>
+            <div className="bin">
+                <Cart showCart={showCart} setShowCart={setShowCart}></Cart>
+            </div>
             </div>
         </div>
     );

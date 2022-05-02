@@ -148,6 +148,31 @@ span {
     cursor: pointer;
 }
 
+.cart .bin {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+}
+
+.nice-cart {
+    width: 200px;
+    padding: 6px;
+    border: 3px solid darkorange;
+    min-height: 200px;
+    background-color: #fff;
+    position: relative;
+}
+
+.nice-cart .close {
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    color: darkorange;
+    position: absolute;
+    right: 10px;
+    top: 3px;
+}
+
 .number {
     position: absolute;
     padding: 7px;
