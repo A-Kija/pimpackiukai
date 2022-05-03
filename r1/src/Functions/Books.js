@@ -24,18 +24,26 @@ class Books {
         return view;
     }
 
-    static getBookById(id, booksStore) {
+    static getBookById(id, booksStore, returnIndex = false) {
         let index = -1;
         booksStore.forEach((b, i) => {
             if (id === b.id) {
                 index = i;
             }
         });
-        return booksStore[index];
+        return returnIndex ? index : booksStore[index];
     }
 
-    static addToCart(id, cart) {
+    static addToCart(id, cartIn) {
+        const cart = cartIn;
+        const index = this.getBookById(id, cart, true);
+        if (index === -1) {
+            cart.push({ id: id, count: 1 });
+        } else {
+            cart[index].count++;
 
+        }
+        return cart;
     }
 
 }

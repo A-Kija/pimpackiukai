@@ -48,19 +48,19 @@ function App() {
 
         setCartView(Books.getCartView(cart, booksStore.current));
 
-    }, [dataReceived]);
+    }, [dataReceived, cart]);
 
 
     useEffect(() => {
         setBooksCartCount(Books.getCartCount(cart));
-    }, []);
+    }, [cart]);
 
     useEffect(() => {
         if(!dataReceived) {
             return;
         }
         setBooksCartTotal(Books.getCartTotal(cart, booksStore.current));
-    },[dataReceived]);
+    },[dataReceived, cart]);
 
 
     useEffect(() => {
@@ -145,7 +145,8 @@ function App() {
     }, [filter, sort]);
 
     const addButtonClicked = id => {
-        setCart(c => Books.addToCart(id, c));
+        
+        setCart(Books.addToCart(id, cart));
     }
 
     const doChangeList = action => {
@@ -185,7 +186,7 @@ function App() {
             </svg>
             <Ranger minMax={minMax} filter={filter} setFilter={setFilter}></Ranger>
             </div>
-            <BooksList likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
+            <BooksList addButtonClicked={addButtonClicked} likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
         
             <div className="cart">
             <div className="count">{booksCartCount}</div>
