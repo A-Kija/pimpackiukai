@@ -4,6 +4,7 @@ import axios from 'axios';
 import BooksList from './Components/books/BooksList';
 import Ranger from './Components/books/Ranger';
 import Cart from './Components/books/Cart';
+import Books from './Functions/Books';
 
 const fakeCart = [
     {id:2, count: 1},
@@ -32,6 +33,8 @@ function App() {
     const booksStore = useRef([]); // Master store
     const [dataReceived, setDataReceived] = useState(false); // duomenys gauti
 
+    const [booksCartCount, setBooksCartCount] = useState(0);
+    const [booksCartTotal, setBooksCartTotal] = useState(0);
 
     useEffect(() => {
         if(!dataReceived) {
@@ -42,6 +45,18 @@ function App() {
         .map(b => ({...b, count: fakeCart[fakeCart.map(cb => cb.id).indexOf(b.id)].count})));
 
     }, [dataReceived]);
+
+
+    useEffect(() => {
+        setBooksCartCount(Books.getCartCount(fakeCart));
+    }, []);
+
+    useEffect(() => {
+        if(!dataReceived) {
+            return;
+        }
+        setBooksCartTotal(Books.getCartTotal(fakeCart, booksStore.current));
+    },[dataReceived]);
 
 
     useEffect(() => {
@@ -166,10 +181,11 @@ function App() {
             <BooksList likeButtonPressed={likeButtonPressed} books={books} likes={likes}></BooksList>
         
             <div className="cart">
+            <div className="count">{booksCartCount}</div>
             <svg onClick={() => setShowCart(s => !s)}>
                 <use xlinkHref="#cart"></use>
             </svg>
-            <span>8.47 eur</span>
+            <span>{booksCartTotal} eur</span>
             <div className="bin">
                 <Cart showCart={showCart} setShowCart={setShowCart} cartView={cartView}></Cart>
             </div>
