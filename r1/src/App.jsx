@@ -40,9 +40,11 @@ function App() {
         if(!dataReceived) {
             return;
         }
-        setCartView(booksStore.current
-        .filter(b => fakeCart.map(cb => cb.id).indexOf(b.id) !== -1)
-        .map(b => ({...b, count: fakeCart[fakeCart.map(cb => cb.id).indexOf(b.id)].count})));
+        // setCartView(booksStore.current
+        // .filter(b => fakeCart.map(cb => cb.id).indexOf(b.id) !== -1)
+        // .map(b => ({...b, count: fakeCart[fakeCart.map(cb => cb.id).indexOf(b.id)].count})));
+
+        setCartView(Books.getCartView(fakeCart, booksStore.current));
 
     }, [dataReceived]);
 

@@ -16,6 +16,14 @@ class Books {
         return amount; // float eurais
     }
 
+    static getCartView(cart, booksStore) {
+        const view = [];
+        cart.forEach(c => {
+            view.push({...this.getBookById(c.id, booksStore), count: c.count });
+        });
+        return view;
+    }
+
     static getBookById(id, booksStore) {
         let index = -1;
         booksStore.forEach((b, i) => {
