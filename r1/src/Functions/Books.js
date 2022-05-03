@@ -34,5 +34,9 @@ class Books {
         return booksStore[index];
     }
 
+    static addToCart(id, cart) {
+
+    }
+
 }
 export default Books;

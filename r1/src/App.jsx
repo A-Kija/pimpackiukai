@@ -6,11 +6,11 @@ import Ranger from './Components/books/Ranger';
 import Cart from './Components/books/Cart';
 import Books from './Functions/Books';
 
-const fakeCart = [
-    {id:2, count: 1},
-    {id:4, count: 2},
-    {id:7, count: 8},
-];
+// const cart = [
+//     {id:2, count: 1},
+//     {id:4, count: 2},
+//     {id:7, count: 8},
+// ];
 
 function App() {
 
@@ -36,28 +36,30 @@ function App() {
     const [booksCartCount, setBooksCartCount] = useState(0);
     const [booksCartTotal, setBooksCartTotal] = useState(0);
 
+    const [cart, setCart] = useState([]);
+
     useEffect(() => {
         if(!dataReceived) {
             return;
         }
         // setCartView(booksStore.current
-        // .filter(b => fakeCart.map(cb => cb.id).indexOf(b.id) !== -1)
-        // .map(b => ({...b, count: fakeCart[fakeCart.map(cb => cb.id).indexOf(b.id)].count})));
+        // .filter(b => cart.map(cb => cb.id).indexOf(b.id) !== -1)
+        // .map(b => ({...b, count: cart[cart.map(cb => cb.id).indexOf(b.id)].count})));
 
-        setCartView(Books.getCartView(fakeCart, booksStore.current));
+        setCartView(Books.getCartView(cart, booksStore.current));
 
     }, [dataReceived]);
 
 
     useEffect(() => {
-        setBooksCartCount(Books.getCartCount(fakeCart));
+        setBooksCartCount(Books.getCartCount(cart));
     }, []);
 
     useEffect(() => {
         if(!dataReceived) {
             return;
         }
-        setBooksCartTotal(Books.getCartTotal(fakeCart, booksStore.current));
+        setBooksCartTotal(Books.getCartTotal(cart, booksStore.current));
     },[dataReceived]);
 
 
@@ -66,10 +68,10 @@ function App() {
         timerId.current = setInterval(() => {
             if (change.current) {
                 setTimer(t => t + 1);
-                console.log('tik tak chage');
+                // console.log('tik tak chage');
                 change.current = false;
             } else {
-                console.log('tik tak no');
+                // console.log('tik tak no');
             }
         }, 5000);
         return () => clearInterval(timerId.current);
@@ -142,6 +144,9 @@ function App() {
         doChangeList(actionObject);
     }, [filter, sort]);
 
+    const addButtonClicked = id => {
+        setCart(c => Books.addToCart(id, c));
+    }
 
     const doChangeList = action => {
         // isivaizduokit kad cia reduseris
