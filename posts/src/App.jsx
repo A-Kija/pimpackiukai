@@ -2,19 +2,22 @@ import { useEffect, useReducer } from 'react';
 import axios from 'axios';
 import masterReducer from './Reducers';
 import './App.css';
-import { getMasterPosts } from './Actions';
+import { getMasterPosts, addA, addB } from './Actions';
 
 function App() {
 
-const [masterPosts, dispach] = useReducer(masterReducer, []);
+// const [masterPosts, dispatch] = useReducer(masterReducer, new Map());
 
-useEffect(() => {
-  axios.get('https://jsonplaceholder.typicode.com/posts')
-  .then(res => {
-    dispach(getMasterPosts(res.data));
-    console.log(res.data);
-  })
-}, []);
+const [countA, dispatchA] = useReducer(masterReducer, 0);
+const [countB, dispatchB] = useReducer(masterReducer, 0);
+
+// useEffect(() => {
+//   axios.get('https://jsonplaceholder.typicode.com/posts')
+//   .then(res => {
+//     dispatch(getMasterPosts(res.data));
+//     console.log(res.data);
+//   })
+// }, []);
 
   return (
     <div className="App">
@@ -31,6 +34,8 @@ useEffect(() => {
           </svg>
           Authors
         </h1>
+        <button onClick={() => dispatchA(addA())}>A {countA}</button>
+        <button onClick={() => dispatchB(addB())}>B {countB}</button>
       </header>
     </div>
   );
