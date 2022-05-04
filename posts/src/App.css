@@ -43,6 +43,8 @@ h1 {
     line-height: 60px;
     font-size: 60px;
     height: 60px;
+    overflow: hidden;
+    position: relative;
 }
 
 .arrow {
@@ -50,6 +52,8 @@ h1 {
     height: 70px;
     fill: #fff;
     padding: 0 10px;
+    position: relative;
+    top: 5px;
 }
 
 .arrow.arrow-left {
