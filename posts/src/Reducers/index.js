@@ -1,28 +1,34 @@
 import { GET_MASTER_POSTS } from "../Constants";
-import AntanoR from "./AntanoR";
-import IevosR from "./IevosR";
-
-// function masterReducer(state, action) {
-//     let stateCopy;
-//     switch (action.type) {
-//         case GET_MASTER_POSTS:
-
-//             stateCopy = action.payload;
-//             break;
-//         default:
-//     }
-//     return stateCopy;
-// }
+import rand from "../Functions/rand";
 
 
 function masterReducer(state, action) {
-    if (action.type <= 200) {
-        return AntanoR(state, action);
+    let stateCopy;
+    switch (action.type) {
+        case GET_MASTER_POSTS:
+            stateCopy = new Map();
+            action.payload.map(post => stateCopy.set(post.id, post));
+            // random kažkiek postų išmest
+            const to = stateCopy.size;
+            do {
+                stateCopy.delete(rand(1, to));
+            } while(stateCopy.size > 80);
+            console.log(stateCopy);
+            break;
+        default:
     }
-    if (action.type <= 400) {
-        return IevosR(state, action);
-    }
+    return stateCopy;
 }
+
+
+// function masterReducer(state, action) {
+//     if (action.type <= 200) {
+//         return AntanoR(state, action);
+//     }
+//     if (action.type <= 400) {
+//         return IevosR(state, action);
+//     }
+// }
 
 
 export default masterReducer;
