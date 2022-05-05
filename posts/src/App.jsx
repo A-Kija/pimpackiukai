@@ -33,6 +33,12 @@ useEffect(() => {
           Authors
         </h1>
       </header>
+      <div className="posts-list">
+        {
+          [...masterPosts].map(p => <div key={p[0]}>{p[1].title}</div>)
+        }
+        
+      </div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ function masterReducer(state, action) {
             const to = stateCopy.size;
             do {
                 stateCopy.delete(rand(1, to));
-            } while(stateCopy.size > 80);
+            } while(stateCopy.size > 30);
             console.log(stateCopy);
             break;
         default:
