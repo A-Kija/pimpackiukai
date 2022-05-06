@@ -35,7 +35,7 @@ class Books {
     }
 
     static addToCart(id, cartIn) {
-        const cart = cartIn;
+        const cart = [...cartIn];
         const index = this.getBookById(id, cart, true);
         if (index === -1) {
             cart.push({ id: id, count: 1 });

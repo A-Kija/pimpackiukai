@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import BooksList from './Components/books/BooksList';
 import Ranger from './Components/books/Ranger';
@@ -37,6 +37,10 @@ function App() {
     const [booksCartTotal, setBooksCartTotal] = useState(0);
 
     const [cart, setCart] = useState([]);
+
+    // const cat = {big: 'ya', black: 'no'};
+
+    const cat = useMemo(() => ({big: 'ya', black: 'no'}), []);
 
     useEffect(() => {
         if(!dataReceived) {
@@ -105,6 +109,7 @@ function App() {
         setLikes(new Set(l));
     }, []);
 
+
     useEffect(() => {
         if (loaded.current) {
             localStorage.setItem('booksLikes', JSON.stringify([...likes]));
@@ -144,7 +149,23 @@ function App() {
         doChangeList(actionObject);
     }, [filter, sort]);
 
+    // const hello = () => {
+    //     console.log('Hello');
+    // }
+
+    const hello = useCallback(() => {
+        console.log('Hello', cat);
+    }, [cat]);
+
+    useEffect(() => {
+        hello();
+    }, [hello]);
+
+
+
     const addButtonClicked = id => {
+
+        // console.log(id);
         
         setCart(Books.addToCart(id, cart));
     }
@@ -173,6 +194,10 @@ function App() {
        setLikes(likesCopy);
     }
 
+    const remove = id => {
+        setCart(c => c.filter(b => b.id !== id));
+    }
+
 
     return (
         <div className="App">
@@ -195,7 +220,7 @@ function App() {
             </svg>
             <span>{booksCartTotal} eur</span>
             <div className="bin">
-                <Cart showCart={showCart} setShowCart={setShowCart} cartView={cartView}></Cart>
+                <Cart remove={remove} showCart={showCart} setShowCart={setShowCart} cartView={cartView}></Cart>
             </div>
             </div>
         </div>
